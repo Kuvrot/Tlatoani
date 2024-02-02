@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1953259897 &8574412962073106934
+TerrainLayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PavingGreen
+  m_DiffuseTexture: {fileID: 2800000, guid: 953bdbe7f58be9546806d3eba39de5e2, type: 3}
+  m_NormalMapTexture: {fileID: 2800000, guid: f40b76f0442d9b14cbebd06b293fc07f, type: 3}
+  m_MaskMapTexture: {fileID: 2800000, guid: b443ece0ef793184389d44e6149375e8, type: 3}
+  m_TileSize: {x: 3, y: 3}
+  m_TileOffset: {x: 0, y: 0}
+  m_Specular: {r: 0, g: 0, b: 0, a: 0}
+  m_Metallic: 0
+  m_Smoothness: 0.317
+  m_NormalScale: 1
+  m_DiffuseRemapMin: {x: 0, y: 0, z: 0, w: 0}
+  m_DiffuseRemapMax: {x: 1, y: 1, z: 1, w: 1}
+  m_MaskMapRemapMin: {x: 0, y: 0.7189642, z: 0, w: 0}
+  m_MaskMapRemapMax: {x: 0.18278754, y: 1, z: 1, w: 0.32977924}
