@@ -132,8 +132,6 @@ public class ActorManager : MonoBehaviour
                             }
 
                         }
-
-                        
                         
                     }
                     else

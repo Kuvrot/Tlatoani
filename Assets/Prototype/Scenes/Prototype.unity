@@ -14768,6 +14768,8 @@ MonoBehaviour:
   currentResources:
   - 9999
   - 9999
+  - 9999
+  - 9999
   selectedBuilding: {fileID: 0}
   buildParticle: {fileID: 1349128869}
   ui: {fileID: 0}

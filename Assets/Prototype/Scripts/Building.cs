@@ -83,8 +83,15 @@ public class Building : MonoBehaviour
 
         if (!IsFinished())
         {
-            BuildingManager.instance.selectedBuilding = this.transform;
+           foreach (Builder builder in ActorManager.instance.selectedActors)
+            {
+
+                builder.currentBuilding = this;
+
+            }
         }
+
+        BuildingManager.instance.selectedBuilding = this.transform;
     }
 
     public void Build(int work)
