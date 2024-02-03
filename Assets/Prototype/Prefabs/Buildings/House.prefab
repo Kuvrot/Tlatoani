@@ -302,13 +302,14 @@ MonoBehaviour:
   buildingName: House
   height: 5.5
   radius: 4.46
-  totalWorkToComplete: 50
+  totalWorkToComplete: 500
   resourceCost: 1900000019000000
   attackable: {fileID: 0}
   isHover: 0
   stateColors:
   - {r: 0.003921569, g: 0.003921569, b: 0.003921569, a: 1}
   - {r: 0.9320358, g: 0.9320358, b: 0.9320358, a: 1}
+  queue: 0
   health_bar: {fileID: 0}
 --- !u!208 &147543516025769518
 NavMeshObstacle:

@@ -13,7 +13,7 @@ public class Building : MonoBehaviour
     public float radius = 5;
     float originalHeight;
     [SerializeField] int totalWorkToComplete = 100;
-    int currentWork;
+    float currentWork;
     public int[] resourceCost = default;
     Transform buildingTransform;
     [HideInInspector] public Damageable attackable;
@@ -26,7 +26,7 @@ public class Building : MonoBehaviour
 
     [HideInInspector]
     public int queue = 0;
-
+    bool finished = true;
 
     //UI
     [HideInInspector()]
@@ -49,6 +49,9 @@ public class Building : MonoBehaviour
         health_bar = GetComponentInChildren<Slider>();
         health_bar.maxValue = totalWorkToComplete;
         //BuildingManager.instance.selectedBuilding = null;
+
+        
+
     }
 
     private void Update()
@@ -99,9 +102,12 @@ public class Building : MonoBehaviour
         }
 
         BuildingManager.instance.selectedBuilding = this.transform;
+
+        BuildingManager.instance.GetComponent<BuildingMenuManager>().BuildingMenu();
+
     }
 
-    public void Build(int work)
+    public void Build(float work)
     {
         currentWork += work;
         attackable.currentHealth += work;
@@ -119,6 +125,19 @@ public class Building : MonoBehaviour
             if (impulse)
                 impulse.GenerateImpulse();
         }
+
+      if (!finished)
+        {
+            if (currentWork >= totalWorkToComplete)
+            {
+                if (buildingName == "House")
+                {
+                    BuildingManager.instance.HouseNumber++;
+                    finished = true;
+                }
+            }
+        }
+
         return currentWork >= totalWorkToComplete;
     }
     public bool CanBuild(float[] resources)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public enum ResourceType { Wood, Stone }
 public class BuildingManager : MonoBehaviour
@@ -9,13 +10,21 @@ public class BuildingManager : MonoBehaviour
     public List<Building> allBuildings = new List<Building>();
     public Building[] buildingPrefabs = default;
     public float[] currentResources = default;
+    public TextMeshProUGUI population;
     public Transform selectedBuilding;
+
+    public int HouseNumber; //This is the quantity of houses in the game, in order to calculate how many villagers can be created
+
 
     [SerializeField] private ParticleSystem buildParticle;
    // [SerializeField] private ParticleSystem finishParticle;
     [HideInInspector]
     public BuildingUI ui;
     public GameObject building_ui;
+
+
+
+
     private void Awake()
     {
         instance = this;
@@ -33,6 +42,9 @@ public class BuildingManager : MonoBehaviour
     {
         building_ui.SetActive(selectedBuilding != null && selectedBuilding.GetComponent<Building>().IsFinished() 
             && ActorManager.instance.selectedActors.Count == 0 ? true : false);
+
+        population.text = ActorManager.instance.allActors.Count.ToString() + " | " + (HouseNumber * 5 + 4).ToString();
+
     }
 
     public void SpawnBuilding(int index, Vector3 position)
@@ -99,4 +111,5 @@ public class BuildingManager : MonoBehaviour
             buildParticle.Play();
         }
     }
+
 }
