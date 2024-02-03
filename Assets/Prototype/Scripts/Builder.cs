@@ -23,15 +23,22 @@ public class Builder : Actor
             SetDestination(jobPosition);
             yield return WaitForNavMesh();
             Vector3 dir = (currentBuilding.transform.position - transform.position).normalized;
-            transform.LookAt(dir);
+            transform.rotation = Quaternion.LookRotation(dir);
+
             while (!currentBuilding.IsFinished())
             {
-                yield return new WaitForSeconds(0.5f);
-                if (!currentBuilding.IsFinished())
+                
+                if (!currentBuilding.IsFinished() && currentBuilding != null)
                     animator.SetTrigger("Attack");
                 else
+                {
                     StopTask();
+                    break;
+                }
+
+                yield return new WaitForSeconds(0.5f);
             }
+            StopTask();
             currentBuilding = null;
             currentTask = null;
         }

@@ -24,6 +24,10 @@ public class Building : MonoBehaviour
     MeshRenderer buildingRender;
     Cinemachine.CinemachineImpulseSource impulse;
 
+    [HideInInspector]
+    public int queue = 0;
+
+
     //UI
     [HideInInspector()]
     public Slider health_bar;
@@ -44,6 +48,7 @@ public class Building : MonoBehaviour
         buildingTransform.localPosition = Vector3.down * height;
         health_bar = GetComponentInChildren<Slider>();
         health_bar.maxValue = totalWorkToComplete;
+        //BuildingManager.instance.selectedBuilding = null;
     }
 
     private void Update()
@@ -51,15 +56,16 @@ public class Building : MonoBehaviour
         
         if (isHover)
         {
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonDown(0))
             {
                 Select();
                 ActorManager.instance.DeselectActors();
+                isHover = false;
             }
         }
         else
         {
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonDown(0))
             {
                 Deselect();
             }
@@ -74,7 +80,7 @@ public class Building : MonoBehaviour
     void Deselect()
     {
         isSelected = false;
-        BuildingManager.instance.selectedBuilding = null;
+        //BuildingManager.instance.selectedBuilding = null;
     }
 
     void Select()
@@ -86,6 +92,7 @@ public class Building : MonoBehaviour
            foreach (Builder builder in ActorManager.instance.selectedActors)
             {
 
+                builder.GiveJob(this);
                 builder.currentBuilding = this;
 
             }

@@ -18,6 +18,21 @@ public class Actor : MonoBehaviour
     public bool isHover = false;
     bool isResource;
 
+
+    //Stats  HP villager = 25 , Eagle warrior = 50 Jaguar Warrior = 65, Golem = 180
+    //Stats Damage Villager = 0.350, Eagle warrior = 7, Jaguar warrior = 10 , Golem = 4.5
+    //Stats speed Eagle warrior is the fastest like chavalry, Jaguar Warrior is slower than eagle warrior, Golem is very very slow.
+    [Header("stats")]
+    public float HP = 25;
+    public float Damage = 0.350f;
+    public float Speed = 3.5f;
+
+
+    //Weakness
+    // Eagle warrior strong against creatures and monsters, weak against distance enemies
+    // Jaguar Warrior strong against distance enemies, weak with creatures
+    //Golem strong to buildings, is weaknest is that walks very slow
+
     private void Awake()
     {
         damageable = GetComponent<Damageable>();
@@ -27,6 +42,12 @@ public class Actor : MonoBehaviour
         visualHandler = GetComponent<ActorVisualHandler>();
         animationEvent.attackEvent.AddListener(Attack);
         isResource = GetComponent<Resource>() ? true : false;
+        
+    }
+
+    private void Start()
+    {
+        ActorManager.instance.allActors.Add(this);
     }
     public void Update()
     {
@@ -44,7 +65,19 @@ public class Actor : MonoBehaviour
     void Attack()
     {
         if (damageableTarget)
-            damageableTarget.Hit(0.350f);
+        {
+
+            if (isBuilder)
+            {
+                damageableTarget.Hit(0.350f);
+            }
+            else
+            {
+                damageableTarget.Hit(0.350f);
+            }
+
+        }
+            
     }
     public void AttackTarget(Damageable target)
     {

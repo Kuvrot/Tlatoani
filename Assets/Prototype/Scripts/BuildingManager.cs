@@ -31,7 +31,8 @@ public class BuildingManager : MonoBehaviour
 
     private void Update()
     {
-        building_ui.SetActive(selectedBuilding != null && selectedBuilding.GetComponent<Building>().IsFinished() ? true : false);
+        building_ui.SetActive(selectedBuilding != null && selectedBuilding.GetComponent<Building>().IsFinished() 
+            && ActorManager.instance.selectedActors.Count == 0 ? true : false);
     }
 
     public void SpawnBuilding(int index, Vector3 position)
@@ -49,11 +50,8 @@ public class BuildingManager : MonoBehaviour
         // Give builders build task
         foreach (Actor actor in ActorManager.instance.selectedActors)
         {
-            if (actor is Builder)
-            {
-                Builder builder = actor as Builder;
-                builder.GiveJob(building);
-            }
+            Builder builder = actor as Builder;
+            builder.GiveJob(building);
         }
 
         // Subtract resources

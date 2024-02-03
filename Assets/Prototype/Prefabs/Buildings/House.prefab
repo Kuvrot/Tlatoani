@@ -319,8 +319,8 @@ NavMeshObstacle:
   m_GameObject: {fileID: 4387096862828539239}
   m_Enabled: 1
   serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 1, y: 2.015, z: 1}
+  m_Shape: 0
+  m_Extents: {x: 5, y: 1, z: 5}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
@@ -419,7 +419,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 4.49
+  m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5605999899936269787
 GameObject:
@@ -669,6 +669,11 @@ PrefabInstance:
       propertyPath: m_StaticShadowCaster
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ebb26f1b3e5fe834c99ad4f6bdda40fa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 814ec37ca05f54145a5120b15d9ef202, type: 2}
     - target: {fileID: 919132149155446097, guid: ebb26f1b3e5fe834c99ad4f6bdda40fa,
         type: 3}
       propertyPath: m_Name

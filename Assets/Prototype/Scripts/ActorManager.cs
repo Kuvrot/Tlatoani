@@ -28,10 +28,10 @@ public class ActorManager : MonoBehaviour
     {
         mainCamera = Camera.main;
 
-        foreach (Actor actor in GetComponentsInChildren<Actor>())
-        {
+       foreach (Actor actor in GetComponentsInChildren<Actor>()) { 
+        
             allActors.Add(actor);
-        }
+       }
 
         selectionArea.gameObject.SetActive(false);
     }
@@ -87,10 +87,11 @@ public class ActorManager : MonoBehaviour
             {
                 DeselectActors();
             }
-
+            BuildingManager.instance.selectedBuilding = null;
         }
         else
         {
+            
             buildingManager.ui.gameObject.SetActive(false);
         }
 
@@ -118,21 +119,15 @@ public class ActorManager : MonoBehaviour
             {
                 foreach (Actor actor in selectedActors)
                 {
-
+                    Builder builder = actor as Builder;
+                    builder.StopTask();
+                    //use this condition to attack enemy buildings if isBuilder == false
                     if (collider.CompareTag("Building"))
                     {
-                        if (buildingManager.selectedBuilding != null)
+                        if (!actor.isBuilder)
                         {
-                            Building building = buildingManager.selectedBuilding.GetComponent<Building>();
-
-                            if (!building.IsFinished())
-                            {
-                                actor.GetComponent<Builder>().GiveJob(building);
-                                actor.GetComponent<Builder>().currentBuilding = building;
-                            }
-
+                            actor.AttackTarget(damageable);
                         }
-                        
                     }
                     else
                     {

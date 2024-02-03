@@ -29,10 +29,4 @@ public class ActorVisualHandler : MonoBehaviour
         if(actor.damageableTarget)
             Instantiate(destroyParticle, actor.damageableTarget.transform.position, Quaternion.identity);
     }
-
-    //private void OnDestroy()
-    //{
-       // if (destroyParticle && Application.isPlaying)
-           // Instantiate(destroyParticle, transform.position, Quaternion.identity);
-   // }
 }
