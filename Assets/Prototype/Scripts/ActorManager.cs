@@ -49,6 +49,12 @@ public class ActorManager : MonoBehaviour
         {
             startDrag = Utility.MouseToTerrainPosition();
             endDrag = startDrag;
+
+            if (!dragging)
+            {
+                SetTask();
+            }
+
         }
         else if (Input.GetMouseButton(0))
         {
@@ -73,17 +79,13 @@ public class ActorManager : MonoBehaviour
                 selectionArea.gameObject.SetActive(false);
 
             }
-            else
-            {
-                SetTask();
-            }
         }
 
         if (selectedActors.Count > 0)
         {
             buildingManager.ui.gameObject.SetActive(true);
 
-            if (Input.GetMouseButtonUp(1))
+            if (Input.GetMouseButtonDown(1))
             {
                 DeselectActors();
             }

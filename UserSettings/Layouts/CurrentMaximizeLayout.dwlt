@@ -193,8 +193,8 @@ MonoBehaviour:
     y: 0
     width: 349
     height: 585
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -238,8 +238,8 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
+      m_SelectedIDs: 3e700000
+      m_LastClickedID: 28734
       m_ExpandedIDs: feaafdff06abfdff14abfdff26dbfdff2edbfdff3cdbfdff70f0fdff78f0fdff86f0fdff08fbffff7c6d00003e70000080700000b2700000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -724,9 +724,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -11.035881, y: 0.32143366, z: 4.339722}
+    m_Target: {x: 2.603364, y: -3.8139725, z: 6.6015244}
     speed: 2
-    m_Value: {x: -11.035881, y: 0.32143366, z: 4.339722}
+    m_Value: {x: 2.603364, y: -3.8139725, z: 6.6015244}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -772,13 +772,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.24915113, y: -0.23115215, z: 0.061367724, w: 0.93847096}
+    m_Target: {x: 0.38006502, y: -0.023582703, z: 0.009693837, w: 0.9246086}
     speed: 2
-    m_Value: {x: 0.24915098, y: -0.23115201, z: 0.061367687, w: 0.9384704}
+    m_Value: {x: 0.38006493, y: -0.023582697, z: 0.009693835, w: 0.92460835}
   m_Size:
-    m_Target: 3.2577782
+    m_Target: 27.568724
     speed: 2
-    m_Value: 3.2577782
+    m_Value: 27.568724
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1081,8 +1081,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 3e700000
+    m_LastClickedInstanceID: 28734
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c62300005ab801002ed800000cd800002ad8000064d80000b81cfdff88a50000121902004c190200f40102000219020000710000bceb000052780000ca780000e0780000f2cb00004e71000016720000ee7e0100208401000672000000000000
     m_RenameOverlay:
@@ -1184,7 +1184,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 28800
+  m_LastSelectedObjectID: 28734
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
