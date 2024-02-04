@@ -50,11 +50,6 @@ public class ActorManager : MonoBehaviour
             startDrag = Utility.MouseToTerrainPosition();
             endDrag = startDrag;
 
-            if (!dragging)
-            {
-                SetTask();
-            }
-
         }
         else if (Input.GetMouseButton(0))
         {
@@ -87,8 +82,12 @@ public class ActorManager : MonoBehaviour
 
             if (Input.GetMouseButtonDown(1))
             {
-                DeselectActors();
+                if (!dragging)
+                {
+                    SetTask();
+                }
             }
+
             BuildingManager.instance.selectedBuilding = null;
         }
         else
@@ -116,7 +115,8 @@ public class ActorManager : MonoBehaviour
             }
         }
         else if (!collider.CompareTag("Player"))
-        {
+        { 
+
             if (collider.TryGetComponent(out Damageable damageable))
             {
                 foreach (Actor actor in selectedActors)

@@ -26,6 +26,8 @@ public class Building : MonoBehaviour
 
     [HideInInspector]
     public int queue = 0;
+    [HideInInspector]
+    public float clock;
     bool finished = true;
 
     //UI
@@ -161,10 +163,12 @@ public class Building : MonoBehaviour
     private void OnMouseEnter()
     {
         isHover = true;
+        CursorManager.instance.setBuildingCursor();
     }
     private void OnMouseExit()
     {
         isHover = false;
+        CursorManager.instance.setBasicCursor();
     }
 
     private void OnDrawGizmos()

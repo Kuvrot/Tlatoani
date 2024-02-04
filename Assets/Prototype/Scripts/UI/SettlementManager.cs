@@ -12,9 +12,6 @@ public class SettlementManager : MonoBehaviour
     public GameObject villagerPrefab;
 
     public List<Transform> buildingsWorking;
-    public List<float> buildingsWorkingProgress;
-    public List<int> queue; 
-
 
     // Start is called before the first frame update
     void Start()
@@ -35,11 +32,11 @@ public class SettlementManager : MonoBehaviour
                 
                 Building building = buildingsWorking[i].GetComponent<Building>();
                 Image progress = buildingsWorking[i].GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>();
-                progress.fillAmount = ((buildingsWorkingProgress[i] * 100) / time) * 0.01f;
-                buildingsWorkingProgress[i] += 1 * Time.deltaTime;
+                progress.fillAmount = ((building.clock * 100) / time) * 0.01f;
+                building.clock += 1 * Time.deltaTime;
 
                 //Create villager
-                if (buildingsWorkingProgress[i] >= time)
+                if (building.clock >= time)
                 {
                     progress.fillAmount = 0;
                     building.queue--;
@@ -48,13 +45,12 @@ public class SettlementManager : MonoBehaviour
                     villager.transform.parent = ActorManager.instance.transform;
                     //Add the villager to the allActors list
                     ActorManager.instance.allActors.Add(villager.GetComponent<Actor>());
-                    buildingsWorkingProgress[i] = 0;
+                    building.clock = 0;
                 }
 
                 if (building.queue <= 0)
                 {
                     buildingsWorking.Remove(buildingsWorking[i]);
-                    buildingsWorkingProgress.Remove(buildingsWorkingProgress[i]);
                 }
 
 
@@ -65,10 +61,36 @@ public class SettlementManager : MonoBehaviour
 
     public void CreateVillager()
     {
-        buildingsWorking.Add(BuildingManager.instance.selectedBuilding);
-        buildingsWorkingProgress.Add(0);
-        BuildingManager.instance.selectedBuilding.GetComponent<Building>().queue++;
 
+        if (checkIfExist())
+        {
+            BuildingManager.instance.selectedBuilding.GetComponent<Building>().queue++;
+        }
+        else
+        {
+            buildingsWorking.Add(BuildingManager.instance.selectedBuilding);
+            BuildingManager.instance.selectedBuilding.GetComponent<Building>().queue++;
+        }
+
+    }
+
+
+    bool checkIfExist()
+    {
+
+        bool found = false;
+
+        for (int i = 0; i < buildingsWorking.Count; i++)
+        {
+            if (buildingsWorking[i] == BuildingManager.instance.selectedBuilding)
+            {
+                found = true;
+                break;
+            }
+        }
+
+        return found;
+ 
 
     }
 
