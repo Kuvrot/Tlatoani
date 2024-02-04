@@ -19,7 +19,7 @@ public class ActorManager : MonoBehaviour
     Vector3 endDrag;
     Vector3 dragCenter;
     Vector3 dragSize;
-    bool dragging;
+    public bool dragging;
     private void Awake()
     {
         instance = this;
@@ -63,6 +63,7 @@ public class ActorManager : MonoBehaviour
                 dragSize = (endDrag - startDrag);
                 selectionArea.transform.position = dragCenter;
                 selectionArea.transform.localScale = dragSize + Vector3.up;
+                //DeselectActors();
             }
         }
         else if (Input.GetMouseButtonUp(0))
@@ -85,10 +86,17 @@ public class ActorManager : MonoBehaviour
                 if (!dragging)
                 {
                     SetTask();
+                    BuildingManager.instance.selectedBuilding = null;
                 }
+
             }
 
-            BuildingManager.instance.selectedBuilding = null;
+            if (Input.GetMouseButtonDown(0))
+            {
+               // DeselectActors();
+            }
+
+
         }
         else
         {
@@ -111,6 +119,7 @@ public class ActorManager : MonoBehaviour
                 {
                     actor.StopTask();
                     actor.SetDestination(Utility.MouseToTerrainPosition());
+                    
                 }
             }
         }
@@ -119,22 +128,81 @@ public class ActorManager : MonoBehaviour
 
             if (collider.TryGetComponent(out Damageable damageable))
             {
-                foreach (Actor actor in selectedActors)
+
+                bool resource = false;
+
+                if (damageable.GetComponent<Resource>())
+                {
+                 
+                        if (damageable.GetComponent<Resource>().IsCampClose())
+                        {
+                            resource = true;
+                        }
+
+                }
+
+                    foreach (Actor actor in selectedActors)
                 {
                     Builder builder = actor as Builder;
                     builder.StopTask();
                     //use this condition to attack enemy buildings if isBuilder == false
-                    if (collider.CompareTag("Building"))
+                    if (damageable.GetComponent<Resource>())
                     {
-                        if (!actor.isBuilder)
+
+                        if (damageable.GetComponent<Resource>().isBigResource)
+                        {
+
+                            if (resource)
+                            {
+                                if (collider.CompareTag("Building"))
+                                {
+                                    if (!actor.isBuilder)
+                                    {
+                                        actor.AttackTarget(damageable);
+                                    }
+                                }
+                                else
+                                {
+                                    actor.AttackTarget(damageable);
+                                }
+                            }
+                            else
+                            {
+                                ErrorManager.instance.ThrowError(0);
+                            }
+
+                        }
+                        else
+                        {
+                            if (collider.CompareTag("Building"))
+                            {
+                                if (!actor.isBuilder)
+                                {
+                                    actor.AttackTarget(damageable);
+                                }
+                            }
+                            else
+                            {
+                                actor.AttackTarget(damageable);
+                            }
+                        }
+                            
+                    }
+                    else
+                    {
+                        if (collider.CompareTag("Building"))
+                        {
+                            if (!actor.isBuilder)
+                            {
+                                actor.AttackTarget(damageable);
+                            }
+                        }
+                        else
                         {
                             actor.AttackTarget(damageable);
                         }
                     }
-                    else
-                    {
-                        actor.AttackTarget(damageable);
-                    }
+                    
 
                     
                 }

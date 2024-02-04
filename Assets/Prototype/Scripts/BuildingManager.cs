@@ -22,9 +22,6 @@ public class BuildingManager : MonoBehaviour
     public BuildingUI ui;
     public GameObject building_ui;
 
-
-
-
     private void Awake()
     {
         instance = this;
@@ -51,11 +48,15 @@ public class BuildingManager : MonoBehaviour
     {
         Building building = buildingPrefabs[index];
         if (!building.CanBuild(currentResources))
+        {
+            ErrorManager.instance.ThrowError(2);
             return;
+        }
+            
 
         // Create Building
         building = Instantiate(buildingPrefabs[index], position, Quaternion.identity);
-        allBuildings.Add(building);
+        //allBuildings.Add(building);
         building.ID = allBuildings.Count - 1;
         building.attackable.onDestroy.AddListener(() => RemoveBuilding(building));
 

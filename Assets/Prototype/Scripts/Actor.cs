@@ -95,6 +95,11 @@ public class Actor : MonoBehaviour
                 {
                     if (damageableTarget)
                         animator.SetTrigger("Attack");
+                    else
+                    {
+                        StopTask();
+                        break;
+                    }
                     yield return new WaitForSeconds(1f);
                     
                 }
@@ -106,7 +111,8 @@ public class Actor : MonoBehaviour
     }
     public virtual void StopTask()
     {
-  
+
+        animator.SetTrigger("Respawn");
         damageableTarget = null;
         GetComponent<Builder>().currentBuilding = null;
         if (currentTask != null)

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Resource : MonoBehaviour
 {
-    [SerializeField] ResourceType resourceType;
+    public bool isBigResource = false;
+    [SerializeField] ResourceType resourceType; //wood 0 , stone 1, food 2 , gold 3
     [SerializeField] float amount = 0.359f;
     Damageable damageable;
     public bool isHover;
+
     new
 
          //HoverVisual
@@ -52,4 +54,50 @@ public class Resource : MonoBehaviour
         if (renderer)
             renderer.material.SetColor("_EmissionColor", emissionColor);
     }
+
+    //Checks if there is a camp close to the resource
+    public bool IsCampClose ()
+    {
+
+        bool found = false;
+
+        foreach (Building building in BuildingManager.instance.allBuildings)
+        {
+            if (resourceType.ToString() == "Wood")
+            {
+                if (building.buildingName == "Lumber camp")
+                {
+                    float distance = Vector3.Distance(transform.position , building.transform.position);
+
+                    if (distance <= 25)
+                    {
+                        found =  true;
+                    }
+
+                }
+            }
+
+            if (resourceType.ToString() == "Stone")
+            {
+
+                if (building.buildingName == "Mining camp")
+                {
+                    float distance = Vector3.Distance(transform.position, building.transform.position);
+
+                    if (distance <= 25)
+                    {
+                        found = true;
+                    }
+
+                }
+            }
+        }
+
+        Debug.Log(found);
+        return found;
+     
+
+    }
+    
+
 }

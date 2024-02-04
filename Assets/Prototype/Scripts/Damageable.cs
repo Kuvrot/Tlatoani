@@ -13,9 +13,17 @@ public class Damageable : MonoBehaviour
     public float currentHealth;
     private void Start()
     {
-        currentHealth = 1;
 
         isBuilding = GetComponent<Building>() ? true : false;
+
+        if (isBuilding)
+        {
+            currentHealth = 1;
+        }
+        else
+        {
+            currentHealth = totalHealth;
+        }
 
     }
 

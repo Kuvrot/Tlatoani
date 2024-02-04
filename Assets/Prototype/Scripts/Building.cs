@@ -28,11 +28,13 @@ public class Building : MonoBehaviour
     public int queue = 0;
     [HideInInspector]
     public float clock;
-    bool finished = true;
+    bool finished = false;
 
     //UI
     [HideInInspector()]
     public Slider health_bar;
+
+    bool buildingIsAdded = false; //This checks in order to avoid adding the building to allBuildings list more than once
 
     private void Awake()
     {
@@ -75,11 +77,14 @@ public class Building : MonoBehaviour
                 Deselect();
             }
         }
-        
-        if (isSelected)
+
+        if (done && !buildingIsAdded)
         {
-            
+            BuildingManager.instance.allBuildings.Add(this);
+            buildingIsAdded = true;
         }
+
+        
     }
 
     void Deselect()
@@ -135,7 +140,10 @@ public class Building : MonoBehaviour
                 if (buildingName == "House")
                 {
                     BuildingManager.instance.HouseNumber++;
-                    finished = true;
+                    if (!finished)
+                    {
+                        finished = true;
+                    }
                 }
             }
         }
