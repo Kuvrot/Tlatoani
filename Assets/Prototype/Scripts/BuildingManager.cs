@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public enum ResourceType { Wood, Stone }
+public enum ResourceType { Wood, Stone , Food , Gold }
 public class BuildingManager : MonoBehaviour
 {
     public static BuildingManager instance;
