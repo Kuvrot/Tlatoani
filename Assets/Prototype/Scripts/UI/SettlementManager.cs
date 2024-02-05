@@ -62,14 +62,21 @@ public class SettlementManager : MonoBehaviour
     public void CreateVillager()
     {
 
-        if (checkIfExist())
+        if (ActorManager.instance.allActors.Count + 1 <= (BuildingManager.instance.HouseNumber * 5 + 4))
         {
-            BuildingManager.instance.selectedBuilding.GetComponent<Building>().queue++;
+            if (checkIfExist())
+            {
+                BuildingManager.instance.selectedBuilding.GetComponent<Building>().queue++;
+            }
+            else
+            {
+                buildingsWorking.Add(BuildingManager.instance.selectedBuilding);
+                BuildingManager.instance.selectedBuilding.GetComponent<Building>().queue++;
+            }
         }
         else
         {
-            buildingsWorking.Add(BuildingManager.instance.selectedBuilding);
-            BuildingManager.instance.selectedBuilding.GetComponent<Building>().queue++;
+            ErrorManager.instance.ThrowError(1);
         }
 
     }
