@@ -31,6 +31,10 @@ public class BuildingMenuManager : MonoBehaviour
             }else if (names == "Eagle house")
             {
                 BuildingManager.instance.building_ui = Menus[2];
+
+            }else if (names == "Fortress")
+            {
+                BuildingManager.instance.building_ui = Menus[3];
             }
             else
             {

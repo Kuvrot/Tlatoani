@@ -6,8 +6,10 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Damageable))]
 public class Actor : MonoBehaviour
 {
-    NavMeshAgent agent;
+    [HideInInspector]
+    public NavMeshAgent agent;
     public bool isBuilder = true;
+    public bool isArcher = false;
     [HideInInspector] public Damageable damageable;
     [HideInInspector] public Damageable damageableTarget;
     [HideInInspector] public Animator animator;
@@ -57,6 +59,7 @@ public class Actor : MonoBehaviour
     public void SetDestination(Vector3 destination)
     {
         agent.destination = destination;
+
     }
     public WaitUntil WaitForNavMesh()
     {
@@ -84,15 +87,31 @@ public class Actor : MonoBehaviour
             {
                 SetDestination(damageableTarget.transform.position);
                 yield return WaitForNavMesh();
-                while (damageableTarget && Vector3.Distance(damageableTarget.transform.position, transform.position) < 4f)
+                while (damageableTarget && Vector3.Distance(damageableTarget.transform.position, transform.position) < agent.stoppingDistance + 2)
                 {
                     if (damageableTarget)
-                        animator.SetTrigger("Attack");
+                    {
+                        if (!isArcher)
+                        {
+                            animator.SetTrigger("Attack");
+                        }
+                        else
+                        {
+                            animator.SetTrigger("Bow");
+                            GetComponent<Archer>().SpawnArrows(damageableTarget);
+                        }
+                    }
                     else
                     {
                         StopTask();
                         break;
                     }
+
+                    if (isArcher)
+                    {
+                        yield return new WaitForSeconds(4f);
+                    }
+
                     yield return new WaitForSeconds(1f);
                     
                 }
@@ -100,6 +119,7 @@ public class Actor : MonoBehaviour
             }
 
             currentTask = null;
+            
         }
     }
     public virtual void StopTask()

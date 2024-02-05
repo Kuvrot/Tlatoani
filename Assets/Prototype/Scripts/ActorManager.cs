@@ -117,6 +117,12 @@ public class ActorManager : MonoBehaviour
             {
                 foreach (Actor actor in selectedActors)
                 {
+                    if (actor.isArcher)
+                    {
+                        actor.agent.stoppingDistance = 2;
+                    }
+
+
                     actor.StopTask();
                     actor.SetDestination(Utility.MouseToTerrainPosition());
                     
@@ -130,6 +136,7 @@ public class ActorManager : MonoBehaviour
             {
 
                 bool resource = false;
+
 
                 if (damageable.GetComponent<Resource>())
                 {
@@ -146,6 +153,12 @@ public class ActorManager : MonoBehaviour
                     Builder builder = actor as Builder;
                     builder.StopTask();
                     //use this condition to attack enemy buildings if isBuilder == false
+
+                    if (actor.isArcher)
+                    {
+                        actor.agent.stoppingDistance = 20;
+                    }
+
                     if (damageable.GetComponent<Resource>())
                     {
 
