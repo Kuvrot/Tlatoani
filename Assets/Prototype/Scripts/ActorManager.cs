@@ -154,17 +154,7 @@ public class ActorManager : MonoBehaviour
 
                             if (resource)
                             {
-                                if (collider.CompareTag("Building"))
-                                {
-                                    if (!actor.isBuilder)
-                                    {
-                                        actor.AttackTarget(damageable);
-                                    }
-                                }
-                                else
-                                {
-                                    actor.AttackTarget(damageable);
-                                }
+                                Attack(actor, collider, damageable);
                             }
                             else
                             {
@@ -174,33 +164,13 @@ public class ActorManager : MonoBehaviour
                         }
                         else
                         {
-                            if (collider.CompareTag("Building"))
-                            {
-                                if (!actor.isBuilder)
-                                {
-                                    actor.AttackTarget(damageable);
-                                }
-                            }
-                            else
-                            {
-                                actor.AttackTarget(damageable);
-                            }
+                            Attack(actor, collider, damageable);
                         }
                             
                     }
                     else
                     {
-                        if (collider.CompareTag("Building"))
-                        {
-                            if (!actor.isBuilder)
-                            {
-                                actor.AttackTarget(damageable);
-                            }
-                        }
-                        else
-                        {
-                            actor.AttackTarget(damageable);
-                        }
+                        Attack(actor , collider , damageable);
                     }
                     
 
@@ -212,6 +182,34 @@ public class ActorManager : MonoBehaviour
 
     }
 
+    void Attack(Actor actor , Collider collider , Damageable damageable)
+    {
+        if (collider.CompareTag("Building"))
+        {
+            if (!actor.isBuilder)
+            {
+                actor.AttackTarget(damageable);
+            }
+        }
+        else
+        {
+
+            if (!actor.isBuilder)
+            {
+                actor.AttackTarget(damageable);
+            }
+            else
+            {
+                if (damageable.TryGetComponent(out Resource resource ))
+                {
+                    actor.AttackTarget(damageable);
+                }
+            }
+
+            
+        }
+    }
+
     void SelectActors()
     {
         DeselectActors();
@@ -221,16 +219,7 @@ public class ActorManager : MonoBehaviour
         {
             if (hit.collider.TryGetComponent(out Actor actor))
             {
-                if (actor.isBuilder)
-                {
-                    selectedActors.Add(actor);
-
-                }
-                else
-                {
-                    selectedSoldiers.Add(actor);
-
-                }
+                selectedActors.Add(actor);
                 actor.visualHandler.Select();
             }
         }

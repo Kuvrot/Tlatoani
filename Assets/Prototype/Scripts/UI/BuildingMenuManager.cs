@@ -12,7 +12,10 @@ public class BuildingMenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        foreach (GameObject obj in Menus)
+        {
+            obj.SetActive(false);
+        }
     }
 
     public void BuildingMenu ()
@@ -25,6 +28,9 @@ public class BuildingMenuManager : MonoBehaviour
             {
                 BuildingManager.instance.building_ui = Menus[1];
 
+            }else if (names == "Eagle house")
+            {
+                BuildingManager.instance.building_ui = Menus[2];
             }
             else
             {

@@ -11,6 +11,12 @@ public class Builder : Actor
     }
     public void GiveJob(Building job)
     {
+
+        if (!isBuilder)
+        {
+            return;
+        }
+
         //StopTask();
         currentBuilding = job;
         currentTask = StartCoroutine(StartJob());

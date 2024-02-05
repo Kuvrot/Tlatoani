@@ -67,14 +67,7 @@ public class Actor : MonoBehaviour
         if (damageableTarget)
         {
 
-            if (isBuilder)
-            {
-                damageableTarget.Hit(0.350f);
-            }
-            else
-            {
-                damageableTarget.Hit(0.350f);
-            }
+            damageableTarget.Hit(Damage);
 
         }
             

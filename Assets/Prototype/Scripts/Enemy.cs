@@ -7,20 +7,22 @@ public class Enemy : MonoBehaviour
 {
 
     public Transform target;
-    public float Health = 180;
     public float attackDistance = 3;
     bool canAttack = true;
+    bool isDead = false;
 
 
     //Components
     NavMeshAgent nva;
     Animator anim;
+    Damageable damageable;
 
 
     private void OnEnable()
     {
         nva = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+        damageable = GetComponent<Damageable>();
         nva.stoppingDistance = attackDistance - 3;
         SearchTarget();
     }
@@ -29,34 +31,44 @@ public class Enemy : MonoBehaviour
     {
       
 
-        if (target == null)
+        
+
+        if (damageable.currentHealth <= 0)
         {
-            SearchTarget();
+            if (!isDead)
+            {
+                anim.SetTrigger("Death");
+                isDead = true;
+                nva.isStopped = true;
+                StartCoroutine(Death());
+            }
         }
         else
         {
-            Vector3 dir = (target.position - transform.position).normalized;
-            transform.rotation = Quaternion.LookRotation(dir);
-
-            float distance = Vector3.Distance(target.position , transform.position);
-
-            if (distance <= attackDistance)
+            if (target == null)
             {
-                if (canAttack)
-                {
-                    StartCoroutine(Attacking());
-                }
+                SearchTarget();
             }
             else
             {
-                nva.SetDestination(target.position);
+                Vector3 dir = (target.position - transform.position).normalized;
+                transform.rotation = Quaternion.LookRotation(dir);
+
+                float distance = Vector3.Distance(target.position, transform.position);
+
+                if (distance <= attackDistance)
+                {
+                    if (canAttack)
+                    {
+                        StartCoroutine(Attacking());
+                    }
+                }
+                else
+                {
+                    nva.SetDestination(target.position);
+                }
+
             }
-
-        }
-
-        if (Health <= 0)
-        {
-            anim.SetTrigger("Death");
         }
 
 
@@ -71,6 +83,12 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(3);
         canAttack = true;
         StopCoroutine(Attacking());
+    }
+
+    IEnumerator Death()
+    {
+        yield return new WaitForSeconds(10);
+        Destroy(gameObject);
     }
 
     void SearchTarget ()
