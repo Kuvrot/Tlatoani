@@ -69,7 +69,7 @@ public class Resource : MonoBehaviour
                 {
                     float distance = Vector3.Distance(transform.position , building.transform.position);
 
-                    if (distance <= 25)
+                    if (distance <= 50)
                     {
                         found =  true;
                     }
