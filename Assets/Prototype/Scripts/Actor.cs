@@ -16,6 +16,7 @@ public class Actor : MonoBehaviour
     [HideInInspector] public AnimationEventListener animationEvent;
     public Coroutine currentTask;
     [HideInInspector] public ActorVisualHandler visualHandler;
+    bool canAttack = true;
 
     public bool isHover = false;
     bool isResource;
@@ -91,14 +92,21 @@ public class Actor : MonoBehaviour
                 {
                     if (damageableTarget)
                     {
-                        if (!isArcher)
+                        if (canAttack)
                         {
-                            animator.SetTrigger("Attack");
-                        }
-                        else
-                        {
-                            animator.SetTrigger("Bow");
-                            GetComponent<Archer>().SpawnArrows(damageableTarget);
+                            if (!isArcher)
+                            {
+                                animator.SetTrigger("Attack");
+                            }
+                            else
+                            {
+                                animator.SetTrigger("Bow");
+                                GetComponent<Archer>().SpawnArrows(damageableTarget);
+                                Vector3 dir = (damageableTarget.transform.position - transform.position).normalized;
+                                transform.rotation = Quaternion.LookRotation(dir);
+                            }
+
+                            canAttack = false;
                         }
                     }
                     else
@@ -113,6 +121,7 @@ public class Actor : MonoBehaviour
                     }
 
                     yield return new WaitForSeconds(1f);
+                    canAttack = true;
                     
                 }
 

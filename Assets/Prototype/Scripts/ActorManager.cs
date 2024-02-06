@@ -20,6 +20,7 @@ public class ActorManager : MonoBehaviour
     Vector3 dragCenter;
     Vector3 dragSize;
     public bool dragging;
+
     private void Awake()
     {
         instance = this;
