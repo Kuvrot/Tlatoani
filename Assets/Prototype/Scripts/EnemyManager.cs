@@ -24,4 +24,5 @@ public class EnemyManager : MonoBehaviour
         Enemy enemy = Instantiate(enemyPrefabs[index], spawnPosition, Quaternion.identity, transform);
         allEnemies.Add(enemy);
     }
+
 }

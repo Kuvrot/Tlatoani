@@ -21,7 +21,27 @@ public class Arrow : MonoBehaviour
     public void SetTarget (Transform target)
     {
         this.target = target.position;
-
+        StartCoroutine(Timer());
 
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy")){
+
+            collision.gameObject.GetComponent<Damageable>().Hit(5);
+            collision.gameObject.GetComponent<Enemy>().target = transform;
+            Destroy(gameObject);
+
+        }
+    }
+
+    IEnumerator Timer()
+    {
+
+        yield return new WaitForSeconds(4);
+        Destroy(gameObject);
+
+    }
+
 }

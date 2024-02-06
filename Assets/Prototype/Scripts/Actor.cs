@@ -71,6 +71,11 @@ public class Actor : MonoBehaviour
         if (damageableTarget)
         {
 
+            if (damageableTarget.GetComponent<Enemy>())
+            {
+                damageableTarget.GetComponent<Enemy>().target = this.transform;
+            }
+
             damageableTarget.Hit(Damage);
 
         }

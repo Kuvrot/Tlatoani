@@ -36,6 +36,7 @@ public class Damageable : MonoBehaviour
             if (currentHealth <= 0)
                 Destroy();
         }
+
     }
     void Destroy()
     {

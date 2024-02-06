@@ -18,6 +18,8 @@ public class ErrorManager : MonoBehaviour
 
     public void ThrowError(int n)
     {
+        text.gameObject.SetActive(true);
+
         switch (n)
         {
             case 0: text.text = "Camp needed"; break; // This is called when a big resource does not have a camp (mining, lumber, etc) close.
@@ -36,6 +38,7 @@ public class ErrorManager : MonoBehaviour
         //After 2 seconds clear the message
         yield return new WaitForSeconds(2f);
         text.text = "";
+        text.gameObject.SetActive(false);
         StopAllCoroutines();
 
     }

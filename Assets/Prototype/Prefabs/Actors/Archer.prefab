@@ -214,7 +214,7 @@ MonoBehaviour:
   animationEvent: {fileID: 0}
   visualHandler: {fileID: 0}
   isHover: 0
-  HP: 75
+  HP: 25
   Damage: 5
   Speed: 3
   currentBuilding: {fileID: 0}
@@ -237,7 +237,7 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls: []
-  totalHealth: 100
+  totalHealth: 25
   currentHealth: 0
 --- !u!114 &5888315804852649051
 MonoBehaviour:
