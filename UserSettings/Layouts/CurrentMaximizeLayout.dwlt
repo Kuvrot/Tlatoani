@@ -238,10 +238,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 207}
-      m_SelectedIDs: 
+      scrollPos: {x: 0, y: 63}
+      m_SelectedIDs: a41f0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 3a7ffeffdedbfeff48dcfeff4cdcfeff4edcfeff50dcfeff56dcfeff58dcfeff5adcfeff5cdcfeff5edcfeff18e9ffff1ce9ffff20e9ffff24e9ffff28e9ffff50e9ffff54e9ffff58e9ffff8ce9ffff90e9ffff5ef2ffff08fbfffff26e0000626f0000e870000098710000
+      m_ExpandedIDs: 0e8bfdff8e97fdff549cfdff3a7ffeffdedbfeff48dcfeff4cdcfeff4edcfeff50dcfeff56dcfeff58dcfeff5adcfeff5cdcfeff5edcfeff18e9ffff1ce9ffff20e9ffff24e9ffff28e9ffff50e9ffff54e9ffff58e9ffff8ce9ffff90e9ffff08fbffffe06d0000626f0000e8700000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -284,8 +284,8 @@ MonoBehaviour:
     y: 0
     width: 515
     height: 747
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 8}
   m_Panes:
   - {fileID: 8}
@@ -687,9 +687,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.51365304, y: 0.5370457, z: 3.537869}
+    m_Target: {x: -14.997846, y: 1.1249695, z: 0.31949902}
     speed: 2
-    m_Value: {x: 0.51365304, y: 0.5370457, z: 3.537869}
+    m_Value: {x: -14.997846, y: 1.1249695, z: 0.31949902}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -735,13 +735,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.08501794, y: 0.09373287, z: -0.00803622, w: 0.99193525}
+    m_Target: {x: 0.1311577, y: -0.1689333, z: 0.02268549, w: 0.97660637}
     speed: 2
-    m_Value: {x: 0.085017346, y: 0.093732215, z: -0.008036164, w: 0.9919283}
+    m_Value: {x: 0.13115668, y: -0.16893199, z: 0.022685315, w: 0.9765988}
   m_Size:
-    m_Target: 7.374176
+    m_Target: 13.289087
     speed: 2
-    m_Value: 7.374176
+    m_Value: 13.289087
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -785,8 +785,8 @@ MonoBehaviour:
     y: 0
     width: 569
     height: 747
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 10}
@@ -1042,7 +1042,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prototype/Prefabs
+    - Assets/Prototype/Scripts/UI
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1050,16 +1050,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prototype/Prefabs
+  - Assets/Prototype/Scripts/UI
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\GameEngines\Unity\unity-fv-ip-citybuilder-main
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 361}
-    m_SelectedIDs: 34890000
-    m_LastClickedID: 35124
-    m_ExpandedIDs: 000000000c8900000e89000010890000128900001489000016890000188900001a8900001e89000020890000228900002489000026890000288900002a8900002c89000030890000328900003489000036890000808900008289000000ca9a3b
+    scrollPos: {x: 0, y: 233}
+    m_SelectedIDs: 96890000
+    m_LastClickedID: 35222
+    m_ExpandedIDs: 000000000c8900000e89000010890000128900001489000016890000188900001a8900001e89000020890000228900002489000026890000288900002a8900002c8900002e89000030890000328900003489000036890000808900008a17060000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1112,8 +1112,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: a41f0000
+    m_LastClickedInstanceID: 8100
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300005ab801002ed800000cd800002ad8000064d80000b81cfdff88a50000121902004c190200f40102000219020000710000bceb000052780000ca780000e0780000f2cb00004e71000016720000ee7e010020840100067200000000000080510600989b0000089c0000789c000030f603004e8a0000
     m_RenameOverlay:
@@ -1215,7 +1215,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -105406
+  m_LastSelectedObjectID: -156588
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1287,7 +1287,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 127
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:

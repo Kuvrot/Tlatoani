@@ -36,6 +36,10 @@ public class BuildingMenuManager : MonoBehaviour
             {
                 BuildingManager.instance.building_ui = Menus[3];
             }
+            else if (names == "Archery")
+            {
+                BuildingManager.instance.building_ui = Menus[4];
+            }
             else
             {
                 BuildingManager.instance.building_ui = Menus[0];
