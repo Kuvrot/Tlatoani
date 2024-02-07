@@ -14399,6 +14399,7 @@ GameObject:
   - component: {fileID: 1600224547}
   - component: {fileID: 1600224546}
   - component: {fileID: 1600224545}
+  - component: {fileID: 1600224548}
   m_Layer: 0
   m_Name: GameplayVCAM
   m_TagString: Untagged
@@ -14451,7 +14452,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1418638480}
   m_Lens:
     FieldOfView: 106.2
-    OrthographicSize: 20
+    OrthographicSize: 35
     NearClipPlane: 0.1
     FarClipPlane: 200
     Dutch: 0
@@ -14484,6 +14485,19 @@ Transform:
   - {fileID: 1635357506}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+--- !u!114 &1600224548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600224544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 840cc88d87b107c4d81680a673956e9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollSpeed: 100
 --- !u!1 &1600402933
 GameObject:
   m_ObjectHideFlags: 0
@@ -16305,7 +16319,7 @@ Camera:
   far clip plane: 200
   field of view: 106.2
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 35
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
