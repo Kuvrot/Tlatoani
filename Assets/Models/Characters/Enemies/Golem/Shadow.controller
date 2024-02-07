@@ -49,6 +49,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 5619211401010373862}
     m_Position: {x: 110, y: 350, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 996048191542965049}
+    m_Position: {x: 450.50635, y: 668.9995, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 7650459168062880081}
@@ -67,7 +70,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Golem
+  m_Name: Shadow
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Attack
@@ -95,6 +98,33 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!1102 &996048191542965049
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: mixamo_com
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: -203655887218126122, guid: c53c8add9645e9d45a5853d5af3fb3b7,
+    type: 3}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &2268750493615386646
 AnimatorState:
   serializedVersion: 6
@@ -115,7 +145,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: ea4ff784b0c2e9b4bbdb60a6b20894c5,
+  m_Motion: {fileID: -203655887218126122, guid: a45b441d6374d9e4eb0a748de5851e19,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 

@@ -3453,6 +3453,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterLowDetail
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e1bfd9130e4396141bfd4785ddf6a780,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1242450852873521261, guid: e1bfd9130e4396141bfd4785ddf6a780,
         type: 3}
       propertyPath: m_IsActive

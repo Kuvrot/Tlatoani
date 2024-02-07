@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-
+    public int ID = 0; // 0 is Golem, 1 is Zombie 
     public Transform target;
     public float attackDistance = 3;
     bool canAttack = true;
@@ -16,6 +17,7 @@ public class Enemy : MonoBehaviour
     NavMeshAgent nva;
     Animator anim;
     Damageable damageable;
+    Slider healthBar;
 
 
     private void OnEnable()
@@ -24,14 +26,14 @@ public class Enemy : MonoBehaviour
         anim = GetComponent<Animator>();
         damageable = GetComponent<Damageable>();
         nva.stoppingDistance = attackDistance - 3;
+        healthBar = GetComponentInChildren<Slider>();
         SearchTarget();
     }
 
     private void Update()
     {
-      
 
-        
+        healthBar.value = damageable.currentHealth;
 
         if (damageable.currentHealth <= 0)
         {

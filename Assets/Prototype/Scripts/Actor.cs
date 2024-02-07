@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Damageable))]
 public class Actor : MonoBehaviour
@@ -20,6 +21,8 @@ public class Actor : MonoBehaviour
 
     public bool isHover = false;
     bool isResource;
+
+    Slider hpBar;
 
 
     //Stats  HP villager = 25 , Eagle warrior = 50 Jaguar Warrior = 65, Golem = 180
@@ -45,21 +48,29 @@ public class Actor : MonoBehaviour
         visualHandler = GetComponent<ActorVisualHandler>();
         animationEvent.attackEvent.AddListener(Attack);
         isResource = GetComponent<Resource>() ? true : false;
-        
+        hpBar = GetComponentInChildren<Slider>();
+        hpBar.maxValue = HP;
+
     }
 
     private void Start()
     {
         ActorManager.instance.allActors.Add(this);
+        hpBar = GetComponentInChildren<Slider>();
+        hpBar.maxValue = HP;
+
     }
     public void Update()
     {
         animator.SetFloat("Speed", Mathf.Clamp(agent.velocity.magnitude, 0, 1));
+        hpBar.value = HP;
+
     }
 
     public void SetDestination(Vector3 destination)
     {
         agent.destination = destination;
+        
 
     }
     public WaitUntil WaitForNavMesh()

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Resource : MonoBehaviour
 {
     public bool isBigResource = false;
-    [SerializeField] ResourceType resourceType; //wood 0 , stone 1, food 2 , gold 3
+    [SerializeField] public ResourceType resourceType; //wood 0 , stone 1, food 2 , gold 3
     [SerializeField] float amount = 0.359f;
     Damageable damageable;
     public bool isHover;
