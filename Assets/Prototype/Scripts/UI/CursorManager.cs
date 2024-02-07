@@ -33,12 +33,12 @@ public class CursorManager : MonoBehaviour
 
     public void setBuildingCursor()
     {
-        //Cursor.SetCursor(building, Vector2.zero, CursorMode.ForceSoftware);
+        Cursor.SetCursor(building, Vector2.zero, CursorMode.ForceSoftware);
     }
 
     public void setBasicCursor()
     {
-        //.SetCursor(basic, Vector2.zero, CursorMode.ForceSoftware);
+        Cursor.SetCursor(basic, Vector2.zero, CursorMode.ForceSoftware);
     }
 
 

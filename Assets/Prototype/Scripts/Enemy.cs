@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
         nva = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         damageable = GetComponent<Damageable>();
+        EnemyManager.instance.allEnemies.Add(this);
         nva.stoppingDistance = attackDistance - 3;
         healthBar = GetComponentInChildren<Slider>();
         healthBar.maxValue = damageable.totalHealth;
@@ -92,7 +93,8 @@ public class Enemy : MonoBehaviour
 
     IEnumerator Death()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(4);
+        EnemyManager.instance.allEnemies.Remove(this);
         Destroy(gameObject);
     }
 

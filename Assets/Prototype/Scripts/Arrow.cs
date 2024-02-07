@@ -7,6 +7,9 @@ public class Arrow : MonoBehaviour
     public float speed = 20;
     public Vector3 target;
 
+    [HideInInspector]
+    public bool fromBuilding = false;
+
     // Update is called once per frame
     void Update()
     {
@@ -30,7 +33,12 @@ public class Arrow : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy")){
 
             collision.gameObject.GetComponent<Damageable>().Hit(5);
-            collision.gameObject.GetComponent<Enemy>().target = transform;
+            
+            if (!fromBuilding)
+            {
+                collision.gameObject.GetComponent<Enemy>().target = transform;
+            }
+
             Destroy(gameObject);
 
         }

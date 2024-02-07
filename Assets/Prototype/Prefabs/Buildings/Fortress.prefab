@@ -325,6 +325,7 @@ GameObject:
   - component: {fileID: 599476195867412731}
   - component: {fileID: 4717547724575415892}
   - component: {fileID: 2932350597205292457}
+  - component: {fileID: 1281118899825488462}
   m_Layer: 0
   m_Name: Fortress
   m_TagString: Building
@@ -365,7 +366,7 @@ MonoBehaviour:
   buildingName: Fortress
   height: 15
   radius: 12
-  totalWorkToComplete: 500
+  totalWorkToComplete: 100
   resourceCost: 64000000bc020000
   attackable: {fileID: 0}
   isHover: 0
@@ -486,6 +487,21 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 12
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1281118899825488462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7142797656204992178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281d3530eed9bb44884cd02b931375b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowPref: {fileID: 6867952860592320522, guid: af70666428956f349943f5c7e1a2910b,
+    type: 3}
+  refreshRate: 4
 --- !u!1 &7527720649771502018
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,9 +5,16 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField] Enemy[] enemyPrefabs = default;
+    static public EnemyManager instance;
 
-    List<Enemy> allEnemies = new List<Enemy>();
+    public List<Enemy> allEnemies = new List<Enemy>();
     bool spawn = true;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void Update()
     {
         if (spawn && BuildingManager.instance.GetBuildings().Count > 0)

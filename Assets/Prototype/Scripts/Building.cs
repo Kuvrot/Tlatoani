@@ -9,7 +9,7 @@ public class Building : MonoBehaviour
     public bool isSelected = false;
     public int ID = 0;
     public string buildingName;
-    [SerializeField] float height;
+    [SerializeField] public float height;
     public float radius = 5;
     float originalHeight;
     [SerializeField] int totalWorkToComplete = 100;

@@ -45,10 +45,10 @@ public class SettlementManager : MonoBehaviour
                     //Spawn a villager int the entrance of the building
                     GameObject villager = Instantiate(villagerPrefab, buildingsWorking[i].position + new Vector3 (8,0,-8), buildingsWorking[i].rotation);
                     villager.transform.parent = ActorManager.instance.transform;
-                    BuildingManager.instance.AddResource(ResourceType.Wood, cost[0]);
-                    BuildingManager.instance.AddResource(ResourceType.Stone, cost[1]);
-                    BuildingManager.instance.AddResource(ResourceType.Food, cost[2]);
-                    BuildingManager.instance.AddResource(ResourceType.Gold, cost[3]);
+                    BuildingManager.instance.AddResource(ResourceType.Wood, - cost[0]);
+                    BuildingManager.instance.AddResource(ResourceType.Stone, - cost[1]);
+                    BuildingManager.instance.AddResource(ResourceType.Food, - cost[2]);
+                    BuildingManager.instance.AddResource(ResourceType.Gold, - cost[3]);
                     //Add the villager to the allActors list
                     ActorManager.instance.allActors.Add(villager.GetComponent<Actor>());
                     building.clock = 0;
