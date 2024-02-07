@@ -9,7 +9,7 @@ public class Damageable : MonoBehaviour
     public bool isBuilding;
     public UnityEvent onDestroy = new UnityEvent();
     public UnityEvent onHit = new UnityEvent();
-    [SerializeField] float totalHealth = 100;
+    [SerializeField] public float totalHealth = 100;
     public float currentHealth;
     private void Start()
     {

@@ -160,6 +160,10 @@ public class Actor : MonoBehaviour
         }
     }
 
+    public void GetDamage (float amount)
+    {
+        HP -= amount;
+    }
     private void OnMouseEnter()
     {
         isHover = true;

@@ -6,91 +6,38 @@ using UnityEngine.SceneManagement;
 public class ResourceSpawner : MonoBehaviour
 {
     public Vector3 initialPosition;
-    public float increment = 25; //How many spaces the resource spawner will jump
+    public int gridSize = 25; // Grid size for spawning resources
     public GameObject[] resourcePrefs;
     public int resourceSpawnChance = 25; // The chance a resource will be spawned
 
-    float xCounter = 0;
-    float yCounter = 0;
+    private List<Vector3> spawnPositions = new List<Vector3>();
 
-    public bool allResources = false;
-
-    bool stoneAdded, goldAdded, woodAdded; // to ensure there is at least all the resources
-
-    void Awake()
+    private void Awake()
     {
-        initialPosition = new Vector3 (-315 , 0 ,-476 + increment);
-        xCounter = initialPosition.x;
-        yCounter = initialPosition.z;
-        transform.position = initialPosition;
+        initialPosition = new Vector3(-315, 0, -476 + gridSize);
+        GenerateSpawnPositions();
+        SpawnResources();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void GenerateSpawnPositions()
     {
-
-        transform.position += new Vector3(increment, 0, 0);
-        xCounter += increment;
-
-        int ran = Random.Range(0, 100);
-
-        if (ran <= resourceSpawnChance)
+        for (float x = initialPosition.x; x < 682; x += gridSize)
         {
-            int ran2 = Random.Range(0, resourcePrefs.Length);
-
-           GameObject prefab = Instantiate(resourcePrefs[ran2], transform.position, transform.rotation);
-            
-           if (!stoneAdded)
+            for (float z = initialPosition.z; z < 525; z += gridSize)
             {
-                if (prefab.GetComponent<Resource>().resourceType == ResourceType.Stone)
-                {
-                    stoneAdded = true;
-                }
-            }
-
-            if (!woodAdded)
-            {
-                if (prefab.GetComponent<Resource>().resourceType == ResourceType.Wood)
-                {
-                    woodAdded = true;
-                }
-            }
-
-            if (!goldAdded)
-            {
-                if (prefab.GetComponent<Resource>().resourceType == ResourceType.Gold)
-                {
-                    goldAdded = true;
-                }
-            }
-
-
-        }
-
-        if (stoneAdded && woodAdded && goldAdded)
-        {
-            allResources = true;
-        }
-
-        //Spawn resource
-        if (xCounter >= 682)
-        {
-            yCounter += increment;
-            transform.position = new Vector3(initialPosition.x, 0, yCounter);
-            xCounter = initialPosition.x;
-        }
-
-        if (yCounter >= 525)
-        {
-            if (allResources)
-            { 
-                Destroy(gameObject);
-            }
-            else
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
+                spawnPositions.Add(new Vector3(x, 0, z));
             }
         }
+    }
 
+    private void SpawnResources()
+    {
+        foreach (Vector3 position in spawnPositions)
+        {
+            if (Random.Range(0, 100) <= resourceSpawnChance)
+            {
+                Instantiate(resourcePrefs[Random.Range(0, resourcePrefs.Length)], position, Quaternion.identity);
+            }
+        }
     }
 }

@@ -13,6 +13,10 @@ public class Enemy : MonoBehaviour
     bool isDead = false;
 
 
+    //Stats
+    [Header("stats")]
+    public float damage = 4;
+
     //Components
     NavMeshAgent nva;
     Animator anim;
@@ -27,6 +31,7 @@ public class Enemy : MonoBehaviour
         damageable = GetComponent<Damageable>();
         nva.stoppingDistance = attackDistance - 3;
         healthBar = GetComponentInChildren<Slider>();
+        healthBar.maxValue = damageable.totalHealth;
         SearchTarget();
     }
 
@@ -73,8 +78,6 @@ public class Enemy : MonoBehaviour
             }
         }
 
-
-
     }
 
 
@@ -102,5 +105,9 @@ public class Enemy : MonoBehaviour
 
     }
 
+    public void Hit ()
+    {
+        target.GetComponent<Actor>().GetDamage(damage);
+    }
 
 }
