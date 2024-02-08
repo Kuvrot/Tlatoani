@@ -39,15 +39,7 @@ public class Damageable : MonoBehaviour
             currentHealth -= damage;
 
             audioSource.Play();
-
-            if (currentHealth <= 0)
-                Destroy();
         }
 
-    }
-    void Destroy()
-    {
-        onDestroy.Invoke();
-        Destroy(gameObject);
     }
 }

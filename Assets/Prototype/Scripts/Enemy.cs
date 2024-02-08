@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
         nva = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         damageable = GetComponent<Damageable>();
-        EnemyManager.instance.allEnemies.Add(this);
+        EnemyManager.instance.allEnemies.Add(this.gameObject);
         nva.stoppingDistance = attackDistance - 3;
         healthBar = GetComponentInChildren<Slider>();
         healthBar.maxValue = damageable.totalHealth;
@@ -45,13 +45,12 @@ public class Enemy : MonoBehaviour
 
         if (damageable.currentHealth <= 0)
         {
-            if (!isDead)
-            {
-                anim.SetTrigger("Death");
-                isDead = true;
-                nva.isStopped = true;
+            //if (!isDead)
+            //{
+                //anim.SetTrigger("Death");
+                EnemyManager.instance.allEnemies.Remove(this.gameObject);
                 StartCoroutine(Death());
-            }
+            //}
         }
         else
         {
@@ -95,9 +94,8 @@ public class Enemy : MonoBehaviour
 
     IEnumerator Death()
     {
-        yield return new WaitForSeconds(4);
-        EnemyManager.instance.allEnemies.Remove(this);
-        Destroy(gameObject);
+        yield return new WaitForSeconds(0.5f);
+        Destroy(this.gameObject);
     }
 
     void SearchTarget ()
@@ -116,7 +114,7 @@ public class Enemy : MonoBehaviour
 
         actor.GetDamage(damage);
 
-        if (actor.damageableTarget == null)
+        if (actor.damageableTarget == null && !actor.isBuilder)
         {
             actor.AttackTarget(this.GetComponent<Damageable>());
         }

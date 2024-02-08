@@ -9,12 +9,13 @@ public class EnemyManager : MonoBehaviour
     public int wave = 0;
     public float spawnEnemies = 0; //This is the quantity of enemies that must be spawned with the following formula: f(x)=sin(((π)/(100)) x) * 50
 
-    public List<Enemy> allEnemies = new List<Enemy>();
+    public List<GameObject> allEnemies;
     bool spawn = true;
 
     private void Awake()
     {
         instance = this;
+        //wave = -10;
     }
 
     private void Update()
@@ -35,11 +36,13 @@ public class EnemyManager : MonoBehaviour
         wave += 10;
         spawnEnemies = Mathf.Sin((Mathf.PI / 100) * wave) * 50;
 
-        for (int i = 0; i <= spawnEnemies; i++)
+        int se = Mathf.RoundToInt(spawnEnemies);
+
+        for (int i = 0; i <= se; i++)
         {
             int ran = Random.Range(0, PortalSpawner.instance.portals.Count);
             GameObject enemy = Instantiate(enemyPrefabs[0].gameObject, PortalSpawner.instance.portals[ran].transform.position, PortalSpawner.instance.portals[ran].transform.rotation);
-            allEnemies.Add(enemy.GetComponent<Enemy>());
+            allEnemies.Add(enemy.gameObject);
 
         }
     }
