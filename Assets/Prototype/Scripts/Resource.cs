@@ -92,8 +92,6 @@ public class Resource : MonoBehaviour
                 }
             }
         }
-
-        Debug.Log(found);
         return found;
      
 

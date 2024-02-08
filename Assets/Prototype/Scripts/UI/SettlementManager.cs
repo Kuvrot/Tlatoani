@@ -15,10 +15,12 @@ public class SettlementManager : MonoBehaviour
 
     public List<Transform> buildingsWorking;
 
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -52,6 +54,7 @@ public class SettlementManager : MonoBehaviour
                     //Add the villager to the allActors list
                     ActorManager.instance.allActors.Add(villager.GetComponent<Actor>());
                     building.clock = 0;
+                    audioSource.Play();
                 }
 
                 if (building.queue <= 0)

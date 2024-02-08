@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     Animator anim;
     Damageable damageable;
     Slider healthBar;
+    new SkinnedMeshRenderer renderer;
 
 
     private void OnEnable()
@@ -33,6 +34,7 @@ public class Enemy : MonoBehaviour
         nva.stoppingDistance = attackDistance - 3;
         healthBar = GetComponentInChildren<Slider>();
         healthBar.maxValue = damageable.totalHealth;
+        renderer = GetComponentInChildren<SkinnedMeshRenderer>();
         SearchTarget();
     }
 
@@ -109,7 +111,27 @@ public class Enemy : MonoBehaviour
 
     public void Hit ()
     {
-        target.GetComponent<Actor>().GetDamage(damage);
+        Actor actor;
+        actor = target.GetComponent<Actor>();
+
+        actor.GetDamage(damage);
+
+        if (actor.damageableTarget == null)
+        {
+            actor.AttackTarget(this.GetComponent<Damageable>());
+        }
+
+    }
+
+    private void OnMouseEnter() { 
+    
+        if (renderer)
+            renderer.material.SetColor("_EmissionColor", Color.gray);
+    }
+    private void OnMouseExit()
+    {
+        if (renderer)
+            renderer.material.SetColor("_EmissionColor", Color.black);
     }
 
 }

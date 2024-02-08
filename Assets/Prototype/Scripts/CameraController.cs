@@ -11,12 +11,14 @@ public class CameraController : MonoBehaviour
     Vector2 input;
     bool mouseMove = true;
     Vector3 moveInput;
+    Vector3 initialPosition;
 
     void Awake()
     {
         mainCamera = Camera.main.transform;
         transform.LookAt(mainCamera);
         zoomObject = transform.GetChild(0);
+        initialPosition = transform.position;
     }
 
     void Update()
@@ -41,6 +43,11 @@ public class CameraController : MonoBehaviour
         Vector3 movementDirection = mainCamera.TransformDirection(moveInput);
         movementDirection.y = 0;
         transform.position += movementDirection.normalized * Time.deltaTime * cameraSpeed;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            transform.position = initialPosition;
+        }
 
        // zoomObject.localPosition += new Vector3(0, 0, -Input.mouseScrollDelta.y);
        // zoomObject.localPosition = new Vector3(zoomObject.localPosition.x, zoomObject.localPosition.y, Mathf.Clamp(zoomObject.localPosition.z, zoomLimits.x, zoomLimits.y));

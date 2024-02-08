@@ -36,6 +36,8 @@ public class Building : MonoBehaviour
 
     bool buildingIsAdded = false; //This checks in order to avoid adding the building to allBuildings list more than once
 
+    AudioSource audioSource;
+
     private void Awake()
     {
         attackable = GetComponent<Damageable>();
@@ -52,9 +54,8 @@ public class Building : MonoBehaviour
         buildingTransform.localPosition = Vector3.down * height;
         health_bar = GetComponentInChildren<Slider>();
         health_bar.maxValue = totalWorkToComplete;
+        audioSource = GetComponent<AudioSource>();
         //BuildingManager.instance.selectedBuilding = null;
-
-        
 
     }
 
@@ -121,8 +122,9 @@ public class Building : MonoBehaviour
         health_bar.value = attackable.currentHealth;
         buildingTransform.localPosition = Vector3.Lerp(Vector3.down * height, new Vector3(0,originalHeight,0), (float) currentWork / totalWorkToComplete);
 
-        //visual
+        //visual and audio
         BuildingManager.instance.PlayParticle(transform.position);
+        audioSource.Play();
     }
     public bool IsFinished()
     {

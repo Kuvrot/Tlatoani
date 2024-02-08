@@ -27,12 +27,15 @@ public class BuildingDefense : MonoBehaviour
         {
             foreach (Enemy enemy in EnemyManager.instance.allEnemies)
             {
-                float distance = Vector3.Distance(transform.position, enemy.transform.position);
-
-                if (distance <= 50)
+                if (EnemyManager.instance.allEnemies.Count > 0)
                 {
-                    target = enemy.transform;
-                    SpawnArrow();
+                    float distance = Vector3.Distance(transform.position, enemy.transform.position);
+
+                    if (distance <= 50)
+                    {
+                        target = enemy.transform;
+                        SpawnArrow();
+                    }
                 }
             }
         }

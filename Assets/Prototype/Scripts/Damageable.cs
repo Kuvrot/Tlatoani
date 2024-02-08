@@ -11,11 +11,15 @@ public class Damageable : MonoBehaviour
     public UnityEvent onHit = new UnityEvent();
     [SerializeField] public float totalHealth = 100;
     public float currentHealth;
+
+    //Components
+    AudioSource audioSource;
+
     private void Start()
     {
 
         isBuilding = GetComponent<Building>() ? true : false;
-
+        audioSource = GetComponent<AudioSource>();
         if (isBuilding)
         {
             currentHealth = 1;
@@ -33,6 +37,9 @@ public class Damageable : MonoBehaviour
         {
             onHit.Invoke();
             currentHealth -= damage;
+
+            audioSource.Play();
+
             if (currentHealth <= 0)
                 Destroy();
         }

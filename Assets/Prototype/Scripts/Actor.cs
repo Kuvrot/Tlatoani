@@ -65,11 +65,19 @@ public class Actor : MonoBehaviour
         animator.SetFloat("Speed", Mathf.Clamp(agent.velocity.magnitude, 0, 1));
         hpBar.value = HP;
 
+       if (damageableTarget != null)
+        {
+            if (damageableTarget.CompareTag("Enemy"))
+            {
+                SetDestination(damageableTarget.transform.position);
+            }
+        }
+
     }
 
     public void SetDestination(Vector3 destination)
     {
-        agent.destination = destination;
+        agent.SetDestination(destination);
         
 
     }
@@ -100,9 +108,15 @@ public class Actor : MonoBehaviour
 
         IEnumerator StartAttack()
         {
+
             while (damageableTarget)
             {
-                SetDestination(damageableTarget.transform.position);
+
+                if (!target.CompareTag("Enemy"))
+                {
+                    SetDestination(damageableTarget.transform.position);
+                }
+
                 yield return WaitForNavMesh();
                 while (damageableTarget && Vector3.Distance(damageableTarget.transform.position, transform.position) < agent.stoppingDistance + 2)
                 {
@@ -114,7 +128,7 @@ public class Actor : MonoBehaviour
                             {
                                 animator.SetTrigger("Attack");
                             }
-                            else
+                            else // in case de unit is an archer.
                             {
                                 animator.SetTrigger("Bow");
                                 GetComponent<Archer>().SpawnArrows(damageableTarget);
