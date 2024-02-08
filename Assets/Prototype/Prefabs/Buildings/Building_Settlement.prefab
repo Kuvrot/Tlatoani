@@ -542,7 +542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowPref: {fileID: 6867952860592320522, guid: af70666428956f349943f5c7e1a2910b,
     type: 3}
-  refreshRate: 4
+  refreshRate: 2
 --- !u!82 &-6234569279180842987
 AudioSource:
   m_ObjectHideFlags: 0
@@ -599,7 +599,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0

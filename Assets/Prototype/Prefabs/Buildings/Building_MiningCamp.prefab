@@ -159,7 +159,7 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls: []
-  totalHealth: 2400
+  totalHealth: 100
   currentHealth: 0
 --- !u!114 &6277981488069877745
 MonoBehaviour:

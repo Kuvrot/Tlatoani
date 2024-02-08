@@ -47,10 +47,6 @@ public class SettlementManager : MonoBehaviour
                     //Spawn a villager int the entrance of the building
                     GameObject villager = Instantiate(villagerPrefab, buildingsWorking[i].position + new Vector3 (8,0,-8), buildingsWorking[i].rotation);
                     villager.transform.parent = ActorManager.instance.transform;
-                    BuildingManager.instance.AddResource(ResourceType.Wood, - cost[0]);
-                    BuildingManager.instance.AddResource(ResourceType.Stone, - cost[1]);
-                    BuildingManager.instance.AddResource(ResourceType.Food, - cost[2]);
-                    BuildingManager.instance.AddResource(ResourceType.Gold, - cost[3]);
                     //Add the villager to the allActors list
                     ActorManager.instance.allActors.Add(villager.GetComponent<Actor>());
                     building.clock = 0;
@@ -73,14 +69,27 @@ public class SettlementManager : MonoBehaviour
 
         if (ActorManager.instance.allActors.Count + 1 <= (BuildingManager.instance.HouseNumber * 5 + 4))
         {
-            if (checkIfExist())
+            if (EnoughResources())
             {
-                BuildingManager.instance.selectedBuilding.GetComponent<Building>().queue++;
+
+                BuildingManager.instance.AddResource(ResourceType.Wood, -cost[0]);
+                BuildingManager.instance.AddResource(ResourceType.Stone, -cost[1]);
+                BuildingManager.instance.AddResource(ResourceType.Food, -cost[2]);
+                BuildingManager.instance.AddResource(ResourceType.Gold, -cost[3]);
+
+                if (checkIfExist())
+                {
+                    BuildingManager.instance.selectedBuilding.GetComponent<Building>().queue++;
+                }
+                else
+                {
+                    buildingsWorking.Add(BuildingManager.instance.selectedBuilding);
+                    BuildingManager.instance.selectedBuilding.GetComponent<Building>().queue++;
+                }
             }
             else
             {
-                buildingsWorking.Add(BuildingManager.instance.selectedBuilding);
-                BuildingManager.instance.selectedBuilding.GetComponent<Building>().queue++;
+                ErrorManager.instance.ThrowError(2);
             }
         }
         else
@@ -107,6 +116,25 @@ public class SettlementManager : MonoBehaviour
 
         return found;
  
+
+    }
+
+
+    bool EnoughResources ()
+    {
+        bool isEnough = true;
+
+        for (int i = 0; i < cost.Length; i++)
+        {
+            if (cost[i] > BuildingManager.instance.currentResources[i])
+            {
+                isEnough = false;
+                break;
+            }
+        }
+        
+        return isEnough;
+
 
     }
 
