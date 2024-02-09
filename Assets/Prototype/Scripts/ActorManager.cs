@@ -21,6 +21,10 @@ public class ActorManager : MonoBehaviour
     Vector3 dragSize;
     public bool dragging;
 
+    //Components
+    AudioSource audioSource;
+    public Transform marker;
+
     private void Awake()
     {
         instance = this;
@@ -35,10 +39,16 @@ public class ActorManager : MonoBehaviour
        }
 
         selectionArea.gameObject.SetActive(false);
+
+        audioSource = GetComponent<AudioSource>();
+
     }
 
     void Update()
     {
+
+        marker.gameObject.SetActive(selectedActors.Count > 0);
+
 
         if (EventSystem.current.IsPointerOverGameObject())
         {
@@ -88,15 +98,10 @@ public class ActorManager : MonoBehaviour
                 {
                     SetTask();
                     BuildingManager.instance.selectedBuilding = null;
+                    audioSource.Play();
                 }
 
             }
-
-            if (Input.GetMouseButtonDown(0))
-            {
-               // DeselectActors();
-            }
-
 
         }
         else
@@ -123,10 +128,10 @@ public class ActorManager : MonoBehaviour
                         actor.agent.stoppingDistance = 2;
                     }
 
-
                     actor.StopTask();
                     actor.SetDestination(Utility.MouseToTerrainPosition());
-                    
+                    marker.transform.position = Utility.MouseToTerrainPosition();
+
                 }
             }
         }

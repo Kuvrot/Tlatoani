@@ -11,18 +11,18 @@ GameObject:
   - component: {fileID: 7606074844584383017}
   - component: {fileID: 168103673338065056}
   - component: {fileID: 7958083337435209884}
-  - component: {fileID: 2302009473587664837}
   - component: {fileID: 471538199743954483}
   - component: {fileID: 123338650356721877}
   - component: {fileID: 479930591715351252}
   - component: {fileID: 2625993770353406768}
   - component: {fileID: 3452605565564709034}
+  - component: {fileID: 5100680899347945700}
   m_Layer: 0
   m_Name: Gold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7606074844584383017
 Transform:
@@ -32,13 +32,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9194206019174271140}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.49262938, z: -0, w: -0.8702392}
-  m_LocalPosition: {x: -38.5, y: -6.48, z: 43.8}
+  m_LocalRotation: {x: 0.15849365, y: 0.59150636, z: 0.59150636, w: -0.524519}
+  m_LocalPosition: {x: -38.5, y: 0, z: 43.8}
   m_LocalScale: {x: 2.8211854, y: 2.8211854, z: 2.8211854}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 300.973, z: 0}
+  m_LocalEulerAnglesHint: {x: 300, y: 300, z: 300}
 --- !u!33 &168103673338065056
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -89,27 +89,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2302009473587664837
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9194206019174271140}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.8317134, y: 3.286371, z: 2.7944858}
-  m_Center: {x: -0.833281, y: 1.2374862, z: -0.7992856}
 --- !u!208 &471538199743954483
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -140,7 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBigResource: 1
   resourceType: 3
-  amount: 0.359
+  amount: 0.718
   isHover: 0
 --- !u!114 &479930591715351252
 MonoBehaviour:
@@ -273,3 +252,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!135 &5100680899347945700
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194206019174271140}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.25
+  m_Center: {x: -0.8332811, y: 1.2374862, z: -0.7992856}

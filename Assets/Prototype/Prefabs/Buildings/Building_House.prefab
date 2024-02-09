@@ -553,8 +553,8 @@ MonoBehaviour:
   buildingName: House
   height: 5.5
   radius: 4.46
-  totalWorkToComplete: 100
-  resourceCost: 1900000019000000
+  totalWorkToComplete: 500
+  resourceCost: 19000000190000000000000000000000
   attackable: {fileID: 0}
   isHover: 0
   stateColors:

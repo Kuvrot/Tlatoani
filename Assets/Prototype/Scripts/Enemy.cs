@@ -30,7 +30,6 @@ public class Enemy : MonoBehaviour
         nva = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         damageable = GetComponent<Damageable>();
-        EnemyManager.instance.allEnemies.Add(this.gameObject);
         nva.stoppingDistance = attackDistance - 3;
         healthBar = GetComponentInChildren<Slider>();
         healthBar.maxValue = damageable.totalHealth;
@@ -67,6 +66,8 @@ public class Enemy : MonoBehaviour
 
                 if (distance <= attackDistance)
                 {
+                    nva.isStopped = true;
+
                     if (canAttack)
                     {
                         StartCoroutine(Attacking());
@@ -74,6 +75,7 @@ public class Enemy : MonoBehaviour
                 }
                 else
                 {
+                    nva.isStopped = false;
                     nva.SetDestination(target.position);
                 }
 

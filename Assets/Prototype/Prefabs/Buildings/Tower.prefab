@@ -429,8 +429,8 @@ MonoBehaviour:
   buildingName: Tower
   height: 12
   radius: 5.7
-  totalWorkToComplete: 100
-  resourceCost: 320000007d00000019000000
+  totalWorkToComplete: 1800
+  resourceCost: 320000007d0000000000000019000000
   attackable: {fileID: 0}
   isHover: 0
   stateColors:
@@ -458,7 +458,7 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls: []
-  totalHealth: 2400
+  totalHealth: 1800
   currentHealth: 0
 --- !u!114 &7403469129957895505
 MonoBehaviour:

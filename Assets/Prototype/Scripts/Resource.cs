@@ -91,6 +91,22 @@ public class Resource : MonoBehaviour
 
                 }
             }
+
+            if (resourceType.ToString() == "Gold")
+            {
+
+                if (building.buildingName == "Mining camp")
+                {
+                    float distance = Vector3.Distance(transform.position, building.transform.position);
+
+                    if (distance <= 25)
+                    {
+                        found = true;
+                    }
+
+                }
+            }
+
         }
         return found;
      

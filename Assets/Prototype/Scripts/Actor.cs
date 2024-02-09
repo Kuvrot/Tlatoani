@@ -77,7 +77,9 @@ public class Actor : MonoBehaviour
 
     public void SetDestination(Vector3 destination)
     {
+
         agent.SetDestination(destination);
+        agent.isStopped = false;
         
 
     }
@@ -112,13 +114,18 @@ public class Actor : MonoBehaviour
             while (damageableTarget)
             {
 
+                Vector3 jobPosition = target.transform.position;
+                Vector2 randomPosition = Random.insideUnitCircle.normalized * 5;
+                jobPosition.x += randomPosition.x;
+                jobPosition.z += randomPosition.y;
+
                 if (!target.CompareTag("Enemy"))
                 {
-                    SetDestination(damageableTarget.transform.position);
+                    SetDestination(jobPosition);
                 }
 
                 yield return WaitForNavMesh();
-                while (damageableTarget && Vector3.Distance(damageableTarget.transform.position, transform.position) < agent.stoppingDistance + 2)
+                while (damageableTarget && Vector3.Distance(jobPosition, transform.position) < agent.stoppingDistance + 2)
                 {
                     if (damageableTarget)
                     {
@@ -127,6 +134,8 @@ public class Actor : MonoBehaviour
                             if (!isArcher)
                             {
                                 animator.SetTrigger("Attack");
+                                //Vector3 dir = (damageableTarget.transform.position - transform.position).normalized;
+                                //transform.rotation = Quaternion.LookRotation(dir);
                             }
                             else // in case de unit is an archer.
                             {
@@ -150,7 +159,7 @@ public class Actor : MonoBehaviour
                         yield return new WaitForSeconds(4f);
                     }
 
-                    yield return new WaitForSeconds(1f);
+                    yield return new WaitForSeconds(0.5f);
                     canAttack = true;
                     
                 }
@@ -170,13 +179,24 @@ public class Actor : MonoBehaviour
         if (currentTask != null)
         {
             StopCoroutine(currentTask);
+            currentTask = null;
             
         }
+
     }
 
     public void GetDamage (float amount)
     {
         HP -= amount;
+
+        if (HP <= 0)
+        {
+            StopTask();
+            currentTask = null;
+            ActorManager.instance.allActors.Remove(this);
+            Destroy(gameObject);
+        }
+
     }
     private void OnMouseEnter()
     {

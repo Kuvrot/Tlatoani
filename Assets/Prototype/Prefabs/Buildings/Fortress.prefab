@@ -367,8 +367,8 @@ MonoBehaviour:
   buildingName: Fortress
   height: 15
   radius: 12
-  totalWorkToComplete: 100
-  resourceCost: 64000000bc020000
+  totalWorkToComplete: 4800
+  resourceCost: c8000000bc0200000000000064000000
   attackable: {fileID: 0}
   isHover: 0
   stateColors:

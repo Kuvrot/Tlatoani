@@ -22,28 +22,46 @@ public class Builder : Actor
         currentTask = StartCoroutine(StartJob());
         IEnumerator StartJob()
         {
-            Vector3 jobPosition = job.transform.position;
-            Vector2 randomPosition = Random.insideUnitCircle.normalized * currentBuilding.radius;
-            jobPosition.x += randomPosition.x;
-            jobPosition.z += randomPosition.y;
-            SetDestination(jobPosition);
-            yield return WaitForNavMesh();
-            Vector3 dir = (currentBuilding.transform.position - transform.position).normalized;
-            transform.rotation = Quaternion.LookRotation(dir);
-
-            while (!currentBuilding.IsFinished())
+            if (currentBuilding != null)
             {
-                
-                if (!currentBuilding.IsFinished() && currentBuilding != null)
-                    animator.SetTrigger("Attack");
-                else
+
+                Vector3 jobPosition = job.transform.position;
+                Vector2 randomPosition = Random.insideUnitCircle.normalized * currentBuilding.radius;
+                jobPosition.x += randomPosition.x;
+                jobPosition.z += randomPosition.y;
+                SetDestination(jobPosition);
+                yield return WaitForNavMesh();
+
+                if (currentBuilding != null)
                 {
-                    StopTask();
-                    break;
+                    job = null;
+                    agent.isStopped = true;
+                    Vector3 dir = (currentBuilding.transform.position - transform.position).normalized;
+                    transform.rotation = Quaternion.LookRotation(dir);
                 }
 
-                yield return new WaitForSeconds(0.5f);
+
+                while (!currentBuilding.IsFinished())
+                {
+                    if (currentBuilding == null)
+                    {
+                        StopTask();
+                        break;
+                    }
+
+                    if (!currentBuilding.IsFinished() && currentBuilding != null)
+                        animator.SetTrigger("Attack");
+                    else
+                    {
+                        StopTask();
+                        break;
+                    }
+
+                    yield return new WaitForSeconds(0.5f);
+                }
+
             }
+
             StopTask();
             currentBuilding = null;
             currentTask = null;
@@ -57,11 +75,12 @@ public class Builder : Actor
     {
         base.StopTask();
         currentBuilding = null;
+        currentTask = null;
     }
 
     void DoWork()
     {
         if (currentBuilding)
-            currentBuilding.Build(10);
+            currentBuilding.Build(25);
     }
 }

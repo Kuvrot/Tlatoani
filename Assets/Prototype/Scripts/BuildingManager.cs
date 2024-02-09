@@ -18,9 +18,13 @@ public class BuildingManager : MonoBehaviour
 
     [SerializeField] private ParticleSystem buildParticle;
    // [SerializeField] private ParticleSystem finishParticle;
+
+
+    [Header("UI")]
     [HideInInspector]
     public BuildingUI ui;
     public GameObject building_ui;
+    public Transform resourceGroup;
 
     private void Awake()
     {
@@ -42,6 +46,42 @@ public class BuildingManager : MonoBehaviour
 
         population.text = ActorManager.instance.allActors.Count.ToString() + " | " + (HouseNumber * 5 + 4).ToString();
 
+
+        //Deleting buildings
+        if (selectedBuilding != null)
+        {
+            // If the building is not finished yet, then the player can get their resources back
+            if (Input.GetKeyDown(KeyCode.Delete))
+            {
+                Building building = selectedBuilding.GetComponent<Building>();
+
+                if (!building.IsFinished())
+                {
+                    for (int i = 0; i < currentResources.Length; i++)
+                    {
+                        currentResources[i] += building.resourceCost[i];
+                        RefreshResources();
+                    }
+                }
+                else
+                {
+                    allBuildings.Remove(building);
+                }
+
+                CursorManager.instance.setBasicCursor();
+                GetComponent<AudioSource>().Play();
+                Destroy(selectedBuilding.gameObject);
+                selectedBuilding = null;
+
+            }
+        }
+
+    }
+
+    public void RefreshResources()
+    {
+        for (int i = 0; i < resourceGroup.childCount; i++)
+            resourceGroup.GetChild(i).GetComponentInChildren<TextMeshProUGUI>().text = BuildingManager.instance.currentResources[i].ToString("F0");
     }
 
     public void SpawnBuilding(int index, Vector3 position)
@@ -64,6 +104,7 @@ public class BuildingManager : MonoBehaviour
         foreach (Actor actor in ActorManager.instance.selectedActors)
         {
             Builder builder = actor as Builder;
+            actor.StopTask();
             builder.GiveJob(building);
         }
 

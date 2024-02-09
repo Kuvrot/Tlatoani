@@ -26,11 +26,11 @@ public class ZoomSystem : MonoBehaviour
 
         //Constraints
 
-        if (currentSize > 60)
-            currentSize = 60;
+        if (currentSize > 69)
+            currentSize = 69;
         else if (currentSize < 20)
             currentSize = 20;
 
-        cinemachineVirtual.m_Lens.OrthographicSize = Mathf.Clamp(currentSize, 20, 60);
+        cinemachineVirtual.m_Lens.OrthographicSize = Mathf.Clamp(currentSize, 20, 69);
     }
 }

@@ -45,6 +45,7 @@ public class BuildingUI : MonoBehaviour
                 BuildingManager.instance.SpawnBuilding(currentIndex, position);
                 canvasGroup.alpha = 1;
                 ActorManager.instance.DeselectActors();
+                GetComponentInParent<AudioSource>().Play();
                 isPlacing = false;
             }
             
@@ -69,7 +70,7 @@ public class BuildingUI : MonoBehaviour
     {
         string buildingName = b.buildingName;
         int resourceAmount = b.resourceCost.Length;
-        string[] resourceNames = new string[] { "Wood", "Stone" , "Gold" , "Food"};
+        string[] resourceNames = new string[] { "Wood", "Stone" , "Food" , "Gold"};
         string resourceString = string.Empty;
         for (int j = 0; j < resourceAmount; j++)
             resourceString += "\n " + resourceNames[j] + " (" + b.resourceCost[j] + ")";

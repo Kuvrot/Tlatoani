@@ -17,12 +17,13 @@ GameObject:
   - component: {fileID: 1465436546333766077}
   - component: {fileID: 4166161011832457615}
   - component: {fileID: 8165309170715035661}
+  - component: {fileID: -2938848350949963481}
   m_Layer: 0
   m_Name: BigRock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4508574166424874236
 Transform:
@@ -140,7 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBigResource: 1
   resourceType: 1
-  amount: 0.359
+  amount: 0.718
   isHover: 0
 --- !u!114 &1465436546333766077
 MonoBehaviour:
@@ -273,3 +274,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!135 &-2938848350949963481
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2395833154523552937}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.25
+  m_Center: {x: -0.8332811, y: 1.2374862, z: -0.7992856}

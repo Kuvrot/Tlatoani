@@ -16,8 +16,16 @@ public class Farm : MonoBehaviour
     IEnumerator Timer()
     {
         yield return new WaitForSeconds (time);
-        BuildingManager.instance.AddResource(ResourceType.Food , 20);
-        BuildingManager.instance.AddResource(ResourceType.Wood , -60);
+        
+
+        if (BuildingManager.instance.currentResources[0] >= 30)
+        {
+            BuildingManager.instance.AddResource(ResourceType.Food, 20);
+            BuildingManager.instance.AddResource(ResourceType.Wood, -30);
+            BuildingManager.instance.RefreshResources();
+        }
+
+        
         StopAllCoroutines();
         StartCoroutine(Timer());
 

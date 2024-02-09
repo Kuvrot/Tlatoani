@@ -25,8 +25,6 @@ public class BuildingDefense : MonoBehaviour
 
         if (target == null)
         {
-
-
             if (EnemyManager.instance.allEnemies.Count > 0)
             {
                 foreach (GameObject enemy in EnemyManager.instance.allEnemies)
@@ -43,27 +41,31 @@ public class BuildingDefense : MonoBehaviour
                             break;
                         }
                     }
-
-
                 }
-
-               
-
             }
-
-            
         }
         else
         {
 
-            float distance = Vector3.Distance(transform.position, target.position);
-
-            if (distance > 50)
+            if (EnemyManager.instance.allEnemies.Count > 0)
             {
-                target = null;
+                float distance = Vector3.Distance(transform.position, target.position);
+
+                if (distance > 50)
+                {
+                    target = null;
+                }
+                else
+                {
+                    if (target != null)
+                    {
+                        SpawnArrow();
+                    }
+                }
+
             }
 
-            SpawnArrow();
+            
         }
 
         StopCoroutine(SearchEnemy());

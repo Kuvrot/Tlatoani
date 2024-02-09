@@ -13,6 +13,8 @@ public class CameraController : MonoBehaviour
     Vector3 moveInput;
     Vector3 initialPosition;
 
+    bool isSettlmentOnScene = false;
+
     void Awake()
     {
         mainCamera = Camera.main.transform;
@@ -23,6 +25,24 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
+
+        //If there is a settlement, that settlement will be the new inital position
+
+        if (!isSettlmentOnScene)
+        {
+            if (BuildingManager.instance.allBuildings.Count > 0)
+            {
+                foreach (Building building in BuildingManager.instance.allBuildings)
+                {
+                    if (building.buildingName == "Settlement")
+                    {
+                        initialPosition = new Vector3(building.transform.position.x, initialPosition.y, building.transform.position.z);
+                        isSettlmentOnScene = true;
+                    }
+                }
+            }
+        }
+
         moveInput.Set(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
 
         if (mouseMove)

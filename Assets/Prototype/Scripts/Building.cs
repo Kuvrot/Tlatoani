@@ -81,6 +81,7 @@ public class Building : MonoBehaviour
 
         if (done && !buildingIsAdded)
         {
+            GetComponent<AudioSource>().Play();
             BuildingManager.instance.allBuildings.Add(this);
             buildingIsAdded = true;
         }
@@ -110,7 +111,7 @@ public class Building : MonoBehaviour
         }
 
         BuildingManager.instance.selectedBuilding = this.transform;
-
+        audioSource.Play();
         BuildingManager.instance.GetComponent<BuildingMenuManager>().BuildingMenu();
 
     }

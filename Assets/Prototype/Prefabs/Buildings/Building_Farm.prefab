@@ -853,6 +853,7 @@ GameObject:
   - component: {fileID: 6896248724643001999}
   - component: {fileID: 1380896367951271988}
   - component: {fileID: 1377760490257061461}
+  - component: {fileID: 5452073382341358479}
   m_Layer: 0
   m_Name: Building_Farm
   m_TagString: Building
@@ -894,7 +895,7 @@ MonoBehaviour:
   height: 5.5
   radius: 4.46
   totalWorkToComplete: 100
-  resourceCost: 3c000000
+  resourceCost: 3c000000000000000000000000000000
   attackable: {fileID: 0}
   isHover: 0
   stateColors:
@@ -938,7 +939,7 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls: []
-  totalHealth: 10000
+  totalHealth: 100
   currentHealth: 0
 --- !u!114 &6896248724643001999
 MonoBehaviour:
@@ -1110,6 +1111,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5452073382341358479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098397415981894915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87c01a421b91acb4685d5ff497b5debf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 60
 --- !u!1 &2186621460976319277
 GameObject:
   m_ObjectHideFlags: 0

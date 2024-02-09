@@ -304,7 +304,7 @@ MonoBehaviour:
   height: 5.5
   radius: 4.46
   totalWorkToComplete: 500
-  resourceCost: 1900000019000000
+  resourceCost: 19000000190000001900000019000000
   attackable: {fileID: 0}
   isHover: 0
   stateColors:

@@ -36,7 +36,9 @@ public class ResourceSpawner : MonoBehaviour
         {
             if (Random.Range(0, 100) <= resourceSpawnChance)
             {
-                Instantiate(resourcePrefs[Random.Range(0, resourcePrefs.Length)], position, Quaternion.identity);
+                int ran = Random.Range(0, resourcePrefs.Length);
+
+                Instantiate(resourcePrefs[ran], position, resourcePrefs[ran].transform.rotation);
             }
         }
     }

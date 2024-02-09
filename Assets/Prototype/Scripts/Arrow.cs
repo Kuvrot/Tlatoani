@@ -23,7 +23,13 @@ public class Arrow : MonoBehaviour
 
     public void SetTarget (Transform target)
     {
+        if (target == null)
+        {
+            Destroy(gameObject);
+        }
+
         this.target = target.position;
+        
         StartCoroutine(Timer());
 
     }
@@ -49,6 +55,7 @@ public class Arrow : MonoBehaviour
 
         yield return new WaitForSeconds(4);
         Destroy(gameObject);
+        StopAllCoroutines();
 
     }
 
