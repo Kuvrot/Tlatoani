@@ -141,7 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBigResource: 1
   resourceType: 1
-  amount: 0.718
+  amount: 0.8975
   isHover: 0
 --- !u!114 &1465436546333766077
 MonoBehaviour:
