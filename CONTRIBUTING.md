@@ -1,5 +1,8 @@
 ### This are some rules made in order to maintain the project coherent.
 
+#### Copyright notice
+If your contribution it's artistic, make sure that is your own work, public domain work. If it is under CC Attribution then you must give the proper Credit.
+
 #### Coding
 * All variables must named in CamelCase style. with variables starting with lowerCase letters, and methods and classes with upper case letters.
 * Always give preference to optimization and performance.
