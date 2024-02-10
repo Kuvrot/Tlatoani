@@ -21,6 +21,7 @@ public class Actor : MonoBehaviour
 
     public bool isHover = false;
     bool isResource;
+    float animSpeed = 0;
 
     Slider hpBar;
 
@@ -62,7 +63,9 @@ public class Actor : MonoBehaviour
     }
     public void Update()
     {
-        animator.SetFloat("Speed", Mathf.Clamp(agent.velocity.magnitude, 0, 1));
+        animSpeed = Mathf.Clamp(agent.velocity.magnitude, 0, 1);
+        animator.SetFloat("Speed", animSpeed);
+        
         hpBar.value = HP;
 
        if (damageableTarget != null)
@@ -114,18 +117,20 @@ public class Actor : MonoBehaviour
             while (damageableTarget)
             {
 
-                Vector3 jobPosition = target.transform.position;
-                Vector2 randomPosition = Random.insideUnitCircle.normalized * 5;
-                jobPosition.x += randomPosition.x;
-                jobPosition.z += randomPosition.y;
+                Vector3 targetPosition = target.transform.position;
 
                 if (!target.CompareTag("Enemy"))
                 {
-                    SetDestination(jobPosition);
+                    
+                    Vector2 randomPosition = Random.insideUnitCircle.normalized * 10;
+                    targetPosition.x += randomPosition.x;
+                    targetPosition.z += randomPosition.y;
+                    
                 }
 
+                SetDestination(targetPosition);
                 yield return WaitForNavMesh();
-                while (damageableTarget && Vector3.Distance(jobPosition, transform.position) < agent.stoppingDistance + 2)
+                while (damageableTarget && Vector3.Distance(targetPosition, transform.position) < agent.stoppingDistance + 2)
                 {
                     if (damageableTarget)
                     {
@@ -194,10 +199,12 @@ public class Actor : MonoBehaviour
             StopTask();
             currentTask = null;
             ActorManager.instance.allActors.Remove(this);
+            ActorManager.instance.selectedActors.Remove(this);
             Destroy(gameObject);
         }
 
     }
+
     private void OnMouseEnter()
     {
         isHover = true;

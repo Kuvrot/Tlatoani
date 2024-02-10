@@ -23,45 +23,52 @@ public class BuildingDefense : MonoBehaviour
     {
         yield return new WaitForSeconds(refreshRate);
 
-        if (target == null)
+        if (building.buildingIsAdded)
         {
-            if (EnemyManager.instance.allEnemies.Count > 0)
+            
+
+            if (target == null)
             {
-                foreach (GameObject enemy in EnemyManager.instance.allEnemies)
+                if (EnemyManager.instance.allEnemies.Count > 0)
                 {
-
-                    if (enemy != null)
+                    foreach (GameObject enemy in EnemyManager.instance.allEnemies)
                     {
-                        float distance = Vector3.Distance(transform.position, enemy.transform.position);
 
-                        if (distance <= 50)
+                        if (enemy != null)
                         {
-                            target = enemy.transform;
-                            SpawnArrow();
-                            break;
+                            float distance = Vector3.Distance(transform.position, enemy.transform.position);
+
+                            if (distance <= 50)
+                            {
+                                target = enemy.transform;
+                                SpawnArrow();
+                                break;
+                            }
                         }
                     }
                 }
             }
-        }
-        else
-        {
-
-            if (EnemyManager.instance.allEnemies.Count > 0)
+            else
             {
-                float distance = Vector3.Distance(transform.position, target.position);
 
-                if (distance > 50)
+                if (EnemyManager.instance.allEnemies.Count > 0)
                 {
-                    target = null;
-                }
-                else
-                {
-                    if (target != null)
+                    float distance = Vector3.Distance(transform.position, target.position);
+
+                    if (distance > 50)
                     {
-                        SpawnArrow();
+                        target = null;
                     }
+                    else
+                    {
+                        if (target != null)
+                        {
+                            SpawnArrow();
+                        }
+                    }
+
                 }
+
 
             }
 

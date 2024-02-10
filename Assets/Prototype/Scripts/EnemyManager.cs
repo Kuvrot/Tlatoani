@@ -15,12 +15,12 @@ public class EnemyManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        wave = -2;
+        wave = -5;
     }
 
     private void Update()
     {
-        if (BuildingManager.instance.allBuildings.Count > 3)
+        if (BuildingManager.instance.allBuildings.Count > 2)
         {
             if (allEnemies.Count == 0)
             {
@@ -33,7 +33,7 @@ public class EnemyManager : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        wave += 2;
+        wave += 5;
         spawnEnemies = Mathf.Sin((Mathf.PI / 100) * wave) * 50;
 
         if (spawnEnemies <= 0)

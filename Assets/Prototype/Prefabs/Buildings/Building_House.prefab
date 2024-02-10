@@ -409,7 +409,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 20}
+  m_SizeDelta: {x: 67, y: 8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6543564488597212450
 MonoBehaviour:
@@ -551,7 +551,7 @@ MonoBehaviour:
   isSelected: 0
   ID: 0
   buildingName: House
-  height: 5.5
+  height: 2
   radius: 4.46
   totalWorkToComplete: 500
   resourceCost: 19000000190000000000000000000000
@@ -563,6 +563,7 @@ MonoBehaviour:
   queue: 0
   clock: 0
   health_bar: {fileID: 0}
+  buildingIsAdded: 0
 --- !u!208 &5304910817571618303
 NavMeshObstacle:
   m_ObjectHideFlags: 0

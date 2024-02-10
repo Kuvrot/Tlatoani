@@ -3182,13 +3182,13 @@ Light:
   m_InnerSpotAngle: 15.606968
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.686
+    m_Strength: 0
     m_Bias: 0.05
     m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_NearPlane: 0.1
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -9487,7 +9487,7 @@ MonoBehaviour:
   - {fileID: 2395833154523552937, guid: 37f7405d24b1f1645a1ce9199f0e3f71, type: 3}
   - {fileID: 9194206019174271140, guid: 0ffdee0e45e498645ae3963754178cc5, type: 3}
   - {fileID: 8591905437908823453, guid: a6462145a4fa99044bb2ae4eada29b76, type: 3}
-  resourceSpawnChance: 2
+  resourceSpawnChance: 5
 --- !u!1 &731683888
 GameObject:
   m_ObjectHideFlags: 0
@@ -22939,7 +22939,7 @@ MonoBehaviour:
   currentResources:
   - 500
   - 675
-  - 100
+  - 250
   - 0
   population: {fileID: 1722608678}
   selectedBuilding: {fileID: 0}
@@ -24531,10 +24531,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialPosition: {x: 0, y: 0, z: 0}
-  gridSize: 100
+  gridSize: 25
   resourcePrefs:
   - {fileID: 3359966412610582166, guid: 0bd10f24700758b4fb26b67e9d459fa0, type: 3}
-  resourceSpawnChance: 10
+  resourceSpawnChance: 1
   portals: []
 --- !u!1 &1991741702
 GameObject:

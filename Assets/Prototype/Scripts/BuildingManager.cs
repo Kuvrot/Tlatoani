@@ -44,7 +44,7 @@ public class BuildingManager : MonoBehaviour
         building_ui.SetActive(selectedBuilding != null && selectedBuilding.GetComponent<Building>().IsFinished() 
             && ActorManager.instance.selectedActors.Count == 0 ? true : false);
 
-        population.text = ActorManager.instance.allActors.Count.ToString() + " | " + (HouseNumber * 5 + 4).ToString();
+        population.text = ActorManager.instance.allActors.Count.ToString() + " | " + (HouseNumber * 5 + 8).ToString();
 
 
         //Deleting buildings

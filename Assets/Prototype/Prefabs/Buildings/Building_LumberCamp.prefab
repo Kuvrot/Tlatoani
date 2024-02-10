@@ -398,6 +398,7 @@ MonoBehaviour:
   queue: 0
   clock: 0
   health_bar: {fileID: 0}
+  buildingIsAdded: 0
 --- !u!114 &830484123570307171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -642,7 +643,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -12.6}
-  m_SizeDelta: {x: 160, y: 20}
+  m_SizeDelta: {x: 67, y: 8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2950204989799844696
 MonoBehaviour:

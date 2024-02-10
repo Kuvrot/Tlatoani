@@ -217,7 +217,7 @@ MonoBehaviour:
   visualHandler: {fileID: 0}
   isHover: 0
   HP: 25
-  Damage: 5
+  Damage: 2.5
   Speed: 3
   currentBuilding: {fileID: 0}
 --- !u!114 &1485641688913054717
@@ -1536,6 +1536,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3286910004361259421, guid: e1bfd9130e4396141bfd4785ddf6a780,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -2479299813384594845, guid: e1bfd9130e4396141bfd4785ddf6a780,
         type: 3}
       propertyPath: m_CastShadows
@@ -1992,6 +1997,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 119.988
+      objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 91611f442daca3145993be54f8da7266,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7635826562936255635, guid: 91611f442daca3145993be54f8da7266,
         type: 3}

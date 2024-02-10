@@ -108,7 +108,7 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls: []
-  totalHealth: 100000
+  totalHealth: 10000
   currentHealth: 0
 --- !u!114 &4783609802224582155
 MonoBehaviour:
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBigResource: 1
   resourceType: 0
-  amount: 1.158
+  amount: 2.316
   isHover: 0
 --- !u!65 &2163984221107476631
 BoxCollider:

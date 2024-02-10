@@ -34,7 +34,7 @@ public class Building : MonoBehaviour
     [HideInInspector()]
     public Slider health_bar;
 
-    bool buildingIsAdded = false; //This checks in order to avoid adding the building to allBuildings list more than once
+   [HideInInspector] public bool buildingIsAdded = false; //This checks in order to avoid adding the building to allBuildings list more than once
 
     AudioSource audioSource;
 

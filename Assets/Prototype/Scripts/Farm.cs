@@ -20,7 +20,7 @@ public class Farm : MonoBehaviour
 
         if (BuildingManager.instance.currentResources[0] >= 30)
         {
-            BuildingManager.instance.AddResource(ResourceType.Food, 20);
+            BuildingManager.instance.AddResource(ResourceType.Food, 10);
             BuildingManager.instance.AddResource(ResourceType.Wood, -30);
             BuildingManager.instance.RefreshResources();
         }
