@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 
 public class ActorManager : MonoBehaviour
@@ -109,6 +110,12 @@ public class ActorManager : MonoBehaviour
             
             buildingManager.ui.gameObject.SetActive(false);
         }
+
+        if (allActors.Count <= 0)
+        {
+            SceneManager.LoadScene(4);
+        }
+
 
     }
 

@@ -67,7 +67,7 @@ public class SettlementManager : MonoBehaviour
     public void CreateVillager()
     {
 
-        if (ActorManager.instance.allActors.Count + 1 <= (BuildingManager.instance.HouseNumber * 5 + 8))
+        if (ActorManager.instance.allActors.Count + 1 <= (BuildingManager.instance.HouseNumber * 5 + 8) && ActorManager.instance.allActors.Count < 68)
         {
             if (EnoughResources())
             {

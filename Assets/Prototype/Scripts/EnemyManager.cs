@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -8,9 +9,12 @@ public class EnemyManager : MonoBehaviour
     static public EnemyManager instance;
     public int wave = 0;
     public float spawnEnemies = 0; //This is the quantity of enemies that must be spawned with the following formula: f(x)=sin(((π)/(100)) x) * 50
+    public int userWave = 0;
 
     public List<GameObject> allEnemies;
     bool spawn = true;
+
+    public bool playerWon = true;
 
     private void Awake()
     {
@@ -29,16 +33,29 @@ public class EnemyManager : MonoBehaviour
 
             }
         }
+
+        if (userWave > 12)
+        {
+            playerWon = true;
+            SceneManager.LoadScene(3);
+        }
+
     }
 
     public void SpawnEnemy()
     {
         wave += 5;
+        userWave++;
         spawnEnemies = Mathf.Sin((Mathf.PI / 100) * wave) * 50;
 
         if (spawnEnemies <= 0)
         {
             spawnEnemies = 5;
+
+        }
+        if ( wave > 50)
+        {
+            spawnEnemies = 100;
         }
 
         int se = Mathf.RoundToInt(spawnEnemies);

@@ -25,6 +25,7 @@ public class BuildingManager : MonoBehaviour
     public BuildingUI ui;
     public GameObject building_ui;
     public Transform resourceGroup;
+    public TextMeshProUGUI waveText;
 
     private void Awake()
     {
@@ -44,7 +45,16 @@ public class BuildingManager : MonoBehaviour
         building_ui.SetActive(selectedBuilding != null && selectedBuilding.GetComponent<Building>().IsFinished() 
             && ActorManager.instance.selectedActors.Count == 0 ? true : false);
 
-        population.text = ActorManager.instance.allActors.Count.ToString() + " | " + (HouseNumber * 5 + 8).ToString();
+        int maxNumber = HouseNumber * 5 + 8;
+
+        if (HouseNumber >= 68)
+        {
+            HouseNumber = 68;
+        }
+
+        population.text = ActorManager.instance.allActors.Count.ToString() + " | " + maxNumber.ToString();
+
+        waveText.text = "Wave: " + EnemyManager.instance.userWave.ToString();
 
 
         //Deleting buildings
