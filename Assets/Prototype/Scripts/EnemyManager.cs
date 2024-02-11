@@ -12,7 +12,6 @@ public class EnemyManager : MonoBehaviour
     public int userWave = 0;
 
     public List<GameObject> allEnemies;
-    bool spawn = true;
 
     public bool playerWon = true;
 

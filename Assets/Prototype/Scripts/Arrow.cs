@@ -38,8 +38,8 @@ public class Arrow : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy")){
 
-            collision.gameObject.GetComponent<Damageable>().Hit(5);
-            
+            collision.gameObject.GetComponent<Damageable>().Hit(4);
+
             if (!fromBuilding)
             {
                 collision.gameObject.GetComponent<Enemy>().target = transform;

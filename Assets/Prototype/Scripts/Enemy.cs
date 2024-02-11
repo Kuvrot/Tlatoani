@@ -10,7 +10,6 @@ public class Enemy : MonoBehaviour
     public Transform target;
     public float attackDistance = 3;
     bool canAttack = true;
-    bool isDead = false;
 
 
     //Stats
@@ -120,6 +119,8 @@ public class Enemy : MonoBehaviour
         {
             actor.AttackTarget(this.GetComponent<Damageable>());
         }
+
+
 
     }
 

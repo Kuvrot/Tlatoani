@@ -24,5 +24,10 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    public void SetQuality (int n)
+    {
+        QualitySettings.SetQualityLevel(n);
+    }
     
 }

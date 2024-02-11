@@ -114,15 +114,18 @@ public class Actor : MonoBehaviour
         IEnumerator StartAttack()
         {
 
+           
+
             while (damageableTarget)
             {
+                bool faceTarget = false;
 
                 Vector3 targetPosition = target.transform.position;
 
                 if (!target.CompareTag("Enemy"))
                 {
                     
-                    Vector2 randomPosition = Random.insideUnitCircle.normalized * 10;
+                    Vector2 randomPosition = Random.insideUnitCircle.normalized * 7;
                     targetPosition.x += randomPosition.x;
                     targetPosition.z += randomPosition.y;
                     
@@ -139,8 +142,12 @@ public class Actor : MonoBehaviour
                             if (!isArcher)
                             {
                                 animator.SetTrigger("Attack");
-                                //Vector3 dir = (damageableTarget.transform.position - transform.position).normalized;
-                                //transform.rotation = Quaternion.LookRotation(dir);
+                                if (!faceTarget)
+                                {
+                                    Vector3 lookdir = (damageableTarget.transform.position - transform.position).normalized;
+                                    transform.rotation = Quaternion.LookRotation(lookdir);
+                                    faceTarget = true;
+                                }
                             }
                             else // in case de unit is an archer.
                             {

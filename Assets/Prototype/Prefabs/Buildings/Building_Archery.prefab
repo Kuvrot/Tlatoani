@@ -130,7 +130,7 @@ MonoBehaviour:
   buildingName: Archery
   height: 12
   radius: 9
-  totalWorkToComplete: 1200
+  totalWorkToComplete: 700
   resourceCost: 64000000af0000000000000000000000
   attackable: {fileID: 0}
   isHover: 0
@@ -160,7 +160,7 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls: []
-  totalHealth: 1200
+  totalHealth: 700
   currentHealth: 0
 --- !u!114 &4142245447841820784
 MonoBehaviour:

@@ -753,7 +753,7 @@ MonoBehaviour:
   visualHandler: {fileID: 0}
   isHover: 0
   HP: 50
-  Damage: 4
+  Damage: 5
   Speed: 5
   currentBuilding: {fileID: 0}
 --- !u!114 &6162249566928901337

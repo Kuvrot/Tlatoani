@@ -553,7 +553,7 @@ MonoBehaviour:
   buildingName: Eagle house
   height: 12
   radius: 9
-  totalWorkToComplete: 1200
+  totalWorkToComplete: 700
   resourceCost: 64000000af0000000000000000000000
   attackable: {fileID: 0}
   isHover: 0
@@ -583,7 +583,7 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls: []
-  totalHealth: 1200
+  totalHealth: 700
   currentHealth: 0
 --- !u!114 &6927476340510210639
 MonoBehaviour:

@@ -38,6 +38,7 @@ public class BuildingUI : MonoBehaviour
         {
             Vector3 position = Utility.MouseToTerrainPosition();
             Graphics.DrawMesh(buildingPreviewMesh, position, targetRotation.rotation , buildingPreviewMat, 0);
+
             if (Input.GetMouseButtonDown(0))
             {
                 
