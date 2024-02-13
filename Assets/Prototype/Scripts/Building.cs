@@ -80,8 +80,7 @@ public class Building : MonoBehaviour
         }
 
         if (done && !buildingIsAdded)
-        {
-            GetComponent<AudioSource>().Play();
+        { 
             BuildingManager.instance.allBuildings.Add(this);
             buildingIsAdded = true;
         }
@@ -106,12 +105,16 @@ public class Building : MonoBehaviour
 
                 builder.GiveJob(this);
                 builder.currentBuilding = this;
+                BuildingManager.instance.audioSource.PlayOneShot(BuildingManager.instance.buildingHitSound);
 
             }
         }
+        else
+        {
+            BuildingManager.instance.audioSource.PlayOneShot(BuildingManager.instance.selectBuildingSound);
+        }
 
         BuildingManager.instance.selectedBuilding = this.transform;
-        BuildingManager.instance.audioSource.PlayOneShot(BuildingManager.instance.selectBuildingSound);
         BuildingManager.instance.GetComponent<BuildingMenuManager>().BuildingMenu();
 
     }
@@ -125,7 +128,7 @@ public class Building : MonoBehaviour
 
         //visual and audio
         BuildingManager.instance.PlayParticle(transform.position);
-        BuildingManager.instance.audioSource.PlayOneShot(BuildingManager.instance.buildingHitSound);
+        audioSource.PlayOneShot(BuildingManager.instance.buildingHitSound);
     }
     public bool IsFinished()
     {

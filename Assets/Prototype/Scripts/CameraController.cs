@@ -16,6 +16,8 @@ public class CameraController : MonoBehaviour
 
     bool isSettlmentOnScene = false;
 
+    public bool cheats = false;
+
     void Awake()
     {
         mainCamera = Camera.main.transform;
@@ -73,6 +75,18 @@ public class CameraController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene(0);
+        }
+
+        if (cheats)
+        {
+            if (Input.GetKeyDown(KeyCode.U) && Time.timeScale == 1)
+            {
+                Time.timeScale = 10;
+            }
+            else if (Input.GetKeyDown(KeyCode.U) && Time.timeScale == 10)
+            {
+                Time.timeScale = 1;
+            }
         }
 
        // zoomObject.localPosition += new Vector3(0, 0, -Input.mouseScrollDelta.y);

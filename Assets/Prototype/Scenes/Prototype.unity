@@ -6269,6 +6269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomLimits: {x: 4, y: 14}
   cameraSpeed: 100
+  cheats: 1
 --- !u!114 &915609822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13261,7 +13262,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5f6f821ba917f874fbd72d2c0a121ac3, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.55
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -14565,7 +14566,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 66bb88aed268f254481916da083d5ff6, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
