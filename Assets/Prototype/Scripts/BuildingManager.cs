@@ -27,6 +27,11 @@ public class BuildingManager : MonoBehaviour
     public Transform resourceGroup;
     public TextMeshProUGUI waveText;
 
+
+    [Header("SFX")]
+    [HideInInspector] public AudioSource audioSource;
+    public AudioClip selectBuildingSound , buyingBuildingSound, buildingHitSound;
+
     private void Awake()
     {
         instance = this;
@@ -37,6 +42,8 @@ public class BuildingManager : MonoBehaviour
         ui = FindObjectOfType<BuildingUI>();
         if (ui)
             ui.RefreshResources();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -79,7 +86,7 @@ public class BuildingManager : MonoBehaviour
                 }
 
                 CursorManager.instance.setBasicCursor();
-                GetComponent<AudioSource>().Play();
+                audioSource.PlayOneShot(buyingBuildingSound);
                 Destroy(selectedBuilding.gameObject);
                 selectedBuilding = null;
 

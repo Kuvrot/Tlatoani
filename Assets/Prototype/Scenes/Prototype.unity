@@ -3754,6 +3754,9 @@ MonoBehaviour:
   - 20
   - 40
   buildingsWorking: []
+  SFX:
+  - {fileID: 8300000, guid: f8f4ccf89f1c24a45950bc9d619a7448, type: 3}
+  - {fileID: 8300000, guid: 5f4a46995f18f8b40a2d0d70541cc624, type: 3}
 --- !u!4 &532800849
 Transform:
   m_ObjectHideFlags: 0
@@ -7144,6 +7147,9 @@ MonoBehaviour:
   - 50
   - 0
   buildingsWorking: []
+  SFX:
+  - {fileID: 8300000, guid: f8f4ccf89f1c24a45950bc9d619a7448, type: 3}
+  - {fileID: 8300000, guid: 550de9d2eb5d9ec4485d5ba2bf45d4d7, type: 3}
 --- !u!4 &1078773590
 Transform:
   m_ObjectHideFlags: 0
@@ -12937,6 +12943,9 @@ MonoBehaviour:
   - 0
   - 45
   buildingsWorking: []
+  SFX:
+  - {fileID: 8300000, guid: f8f4ccf89f1c24a45950bc9d619a7448, type: 3}
+  - {fileID: 8300000, guid: 5f4a46995f18f8b40a2d0d70541cc624, type: 3}
 --- !u!4 &1847202461
 Transform:
   m_ObjectHideFlags: 0
@@ -13188,6 +13197,10 @@ MonoBehaviour:
   building_ui: {fileID: 2146383384}
   resourceGroup: {fileID: 2030136796}
   waveText: {fileID: 1688697220}
+  audioSource: {fileID: 0}
+  selectBuildingSound: {fileID: 8300000, guid: 27c8d05205daebd4e9386ae0a3bcf382, type: 3}
+  buyingBuildingSound: {fileID: 8300000, guid: 5f6f821ba917f874fbd72d2c0a121ac3, type: 3}
+  buildingHitSound: {fileID: 8300000, guid: 53aae1d01192134429a201dca05b0423, type: 3}
 --- !u!4 &1860931842
 Transform:
   m_ObjectHideFlags: 0
@@ -13505,6 +13518,9 @@ MonoBehaviour:
   - 20
   - 50
   buildingsWorking: []
+  SFX:
+  - {fileID: 8300000, guid: f8f4ccf89f1c24a45950bc9d619a7448, type: 3}
+  - {fileID: 8300000, guid: 5f4a46995f18f8b40a2d0d70541cc624, type: 3}
 --- !u!4 &1868665364
 Transform:
   m_ObjectHideFlags: 0

@@ -111,7 +111,7 @@ public class Building : MonoBehaviour
         }
 
         BuildingManager.instance.selectedBuilding = this.transform;
-        audioSource.Play();
+        BuildingManager.instance.audioSource.PlayOneShot(BuildingManager.instance.selectBuildingSound);
         BuildingManager.instance.GetComponent<BuildingMenuManager>().BuildingMenu();
 
     }
@@ -125,7 +125,7 @@ public class Building : MonoBehaviour
 
         //visual and audio
         BuildingManager.instance.PlayParticle(transform.position);
-        audioSource.Play();
+        BuildingManager.instance.audioSource.PlayOneShot(BuildingManager.instance.buildingHitSound);
     }
     public bool IsFinished()
     {

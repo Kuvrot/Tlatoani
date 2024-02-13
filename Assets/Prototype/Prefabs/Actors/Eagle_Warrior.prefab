@@ -1547,6 +1547,11 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1491971184374577135, guid: e1bfd9130e4396141bfd4785ddf6a780,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 04947fab664b81148889ed8b39022c21, type: 2}
     - target: {fileID: -1382798876228377621, guid: e1bfd9130e4396141bfd4785ddf6a780,
         type: 3}
       propertyPath: m_CastShadows
@@ -1577,6 +1582,11 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -144071482631979189, guid: e1bfd9130e4396141bfd4785ddf6a780,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 04947fab664b81148889ed8b39022c21, type: 2}
     - target: {fileID: 919132149155446097, guid: e1bfd9130e4396141bfd4785ddf6a780,
         type: 3}
       propertyPath: m_Name
@@ -1611,6 +1621,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CastShadows
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3761879437582522314, guid: e1bfd9130e4396141bfd4785ddf6a780,
+        type: 3}
+      propertyPath: m_SkinnedMotionVectors
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5128063986421979777, guid: e1bfd9130e4396141bfd4785ddf6a780,
         type: 3}
@@ -1952,6 +1967,11 @@ PrefabInstance:
     - target: {fileID: 2820290193788983041, guid: 1d40df5dc112cf8438773dad1d0da512,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526464522798385887, guid: 1d40df5dc112cf8438773dad1d0da512,
+        type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6455208042585736250, guid: 1d40df5dc112cf8438773dad1d0da512,

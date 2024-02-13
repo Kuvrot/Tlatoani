@@ -15,6 +15,8 @@ public class SettlementManager : MonoBehaviour
 
     public List<Transform> buildingsWorking;
 
+    public AudioClip[] SFX; //0 is when pressing a button, 1 is when a unit is created.
+
     AudioSource audioSource;
 
     // Start is called before the first frame update
@@ -50,7 +52,7 @@ public class SettlementManager : MonoBehaviour
                     //Add the villager to the allActors list
                     ActorManager.instance.allActors.Add(villager.GetComponent<Actor>());
                     building.clock = 0;
-                    audioSource.Play();
+                    audioSource.PlayOneShot(SFX[1]);
                 }
 
                 if (building.queue <= 0)
@@ -66,6 +68,8 @@ public class SettlementManager : MonoBehaviour
 
     public void CreateVillager()
     {
+
+        audioSource.PlayOneShot(SFX[0]);
 
         if (ActorManager.instance.allActors.Count + 1 <= (BuildingManager.instance.HouseNumber * 5 + 8) && ActorManager.instance.allActors.Count < 68)
         {
