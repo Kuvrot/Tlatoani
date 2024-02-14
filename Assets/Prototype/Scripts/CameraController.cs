@@ -79,6 +79,11 @@ public class CameraController : MonoBehaviour
             SceneManager.LoadScene(0);
         }
 
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            Pause();
+        }
+
         if (cheats)
         {
             if (Input.GetKeyDown(KeyCode.U) && Time.timeScale == 1)
@@ -96,6 +101,20 @@ public class CameraController : MonoBehaviour
 
     }
 
+
+    private void Pause ()
+    {
+        if (isPaused)
+        {
+            Time.timeScale = 1;
+            isPaused = false;
+        }
+        else
+        {
+            Time.timeScale = 0;
+            isPaused = true;
+        }
+    }
 
 
 }
