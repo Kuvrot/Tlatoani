@@ -18,6 +18,8 @@ public class CameraController : MonoBehaviour
 
     public bool cheats = false;
 
+    public bool isPaused = false;
+
     void Awake()
     {
         mainCamera = Camera.main.transform;
@@ -93,4 +95,9 @@ public class CameraController : MonoBehaviour
        // zoomObject.localPosition = new Vector3(zoomObject.localPosition.x, zoomObject.localPosition.y, Mathf.Clamp(zoomObject.localPosition.z, zoomLimits.x, zoomLimits.y));
 
     }
+
+
+
 }
+
+
