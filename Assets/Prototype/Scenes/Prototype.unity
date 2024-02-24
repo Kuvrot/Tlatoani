@@ -6269,7 +6269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomLimits: {x: 4, y: 14}
   cameraSpeed: 100
-  cheats: 1
+  cheats: 0
   isPaused: 0
 --- !u!114 &915609822
 MonoBehaviour:
